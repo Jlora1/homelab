@@ -11,13 +11,13 @@ Goal: build a documented Linux homelab and media server, publish everything to G
 |------|---------|
 | Server | Dell OptiPlex 7040 Micro, i5 |
 | RAM | 16 GB (plenty for Docker, Jellyfin, and more) |
-| Storage | 256 GB (fine for the OS, Docker, and configs) |
+| Storage | 256 GB now; upgrading to 1-2 TB (see storage note) |
 | Network | Old Cisco switch |
 | Current OS | Windows, with Ubuntu running in WSL (used for learning) |
 
 **WSL vs. a real server:** WSL is a good place to learn sudo, users, permissions, scripting, and Git. A real always-on homelab (SSH from other devices, Jellyfin, Docker with open ports, a switch) works best with Linux installed directly on the 7040. Decide around Week 3-4: keep Windows and WSL, dual-boot, or dedicate the 7040 to Ubuntu Server. Until then, the Weeks 1-2 lessons run in WSL.
 
-**Note on storage:** 256 GB is enough for the system, but a media library fills it fast. Plan on adding an external USB drive (1-2 TB) for media and backups around Week 5-6.
+**Note on storage:** The 7040 Micro has one 2.5" SATA bay and one M.2 slot. A drive-compatibility listing says the M.2 slot is SATA-only, and Dell's own article doesn't confirm NVMe support, so buy a **SATA** SSD, not NVMe. Check which slot holds the current 256 GB drive: if the other slot is free, add the new drive instead of replacing the old one. 1 TB covers the OS, Docker, and a modest media library; 2 TB if there's no external media drive. Keep backups on a different drive than the data they protect.
 
 ## Working Method
 
@@ -46,7 +46,7 @@ homelab/
 - [x] Ubuntu running in WSL for learning
 - [ ] Decide: stay on WSL, dual-boot, or install Ubuntu Server on the 7040 (by Weeks 3-4)
 - [ ] SSH hardening (key-only login, disable root login)
-- [ ] Create `homelab` repo structure, README, first write-ups
+- [x] Create `homelab` repo structure, README, first write-ups
 
 ### Weeks 3-4: Security and system basics
 - [ ] Firewall (UFW), fail2ban, updates, reading logs
@@ -100,4 +100,6 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 
 | Date | Lesson | Notes |
 |------|--------|-------|
+| 2026-10-15 | Git, SSH keys, GitHub | [01-git-ssh-github.md](01-git-ssh-github.md) |
+| 2026-10-16 | Files, scripts, permissions | [02-files-scripts-permissions.md](02-files-scripts-permissions.md) |
 | | Sudo and users | next up |
