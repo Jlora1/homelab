@@ -49,7 +49,7 @@ homelab/
 - [x] Git, SSH keys, and GitHub set up
 - [x] File commands, nano, first bash script, rwx permissions
 - [x] Create `homelab` repo structure, README, first write-ups
-- [ ] Sudo and users (in WSL)
+- [x] Sudo and users (in WSL)
 - [ ] Install Ubuntu Server on the EliteDesk (USB installer, wired network), then SSH in from the OptiPlex
 - [ ] SSH hardening on the server (key-only login, disable root login)
 
@@ -107,4 +107,5 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 |------|--------|-------|
 | 2026-10-15 | Git, SSH keys, GitHub | [01-git-ssh-github.md](01-git-ssh-github.md) |
 | 2026-10-16 | Files, scripts, permissions | [02-files-scripts-permissions.md](02-files-scripts-permissions.md) |
-| | Sudo and users | next up |
+| 2026-10-18 | Sudo and users | [03-sudo-and-users.md](03-sudo-and-users.md) |
+| | Install Ubuntu Server on the EliteDesk | next up |
