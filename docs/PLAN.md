@@ -7,17 +7,17 @@ Goal: build a documented Linux homelab and media server, publish everything to G
 
 ## Hardware
 
-| Item | Details |
-|------|---------|
-| Server | Dell OptiPlex 7040 Micro, i5 |
-| RAM | 16 GB (plenty for Docker, Jellyfin, and more) |
-| Storage | 256 GB now; upgrading to 1-2 TB (see storage note) |
-| Network | Old Cisco switch |
-| Current OS | Windows, with Ubuntu running in WSL (used for learning) |
+| Machine | Role | Specs |
+|---------|------|-------|
+| HP EliteDesk 800 G3 Mini | Always-on server (Ubuntu Server, Docker, Jellyfin) | i5 vPro (7th gen), 8 GB RAM, 256 GB SSD |
+| Dell OptiPlex 7040 Micro | Daily PC and learning machine (Windows + Ubuntu in WSL) | i5, 16 GB RAM, 256 GB SSD |
+| Cisco switch (old, managed) | Lab networking practice | |
 
-**WSL vs. a real server:** WSL is a good place to learn sudo, users, permissions, scripting, and Git. A real always-on homelab (SSH from other devices, Jellyfin, Docker with open ports, a switch) works best with Linux installed directly on the 7040. Decide around Week 3-4: keep Windows and WSL, dual-boot, or dedicate the 7040 to Ubuntu Server. Until then, the Weeks 1-2 lessons run in WSL.
+**Why two machines:** The EliteDesk runs Linux directly, like a real server, and is managed over SSH from the OptiPlex. The OptiPlex stays on Windows so there's always a working daily machine. Early lessons (Git, files, permissions, sudo and users) run in WSL on the OptiPlex; the server work starts once Ubuntu Server is installed on the EliteDesk.
 
-**Note on storage:** The 7040 Micro has one 2.5" SATA bay and one M.2 slot. A drive-compatibility listing says the M.2 slot is SATA-only, and Dell's own article doesn't confirm NVMe support, so buy a **SATA** SSD, not NVMe. Check which slot holds the current 256 GB drive: if the other slot is free, add the new drive instead of replacing the old one. 1 TB covers the OS, Docker, and a modest media library; 2 TB if there's no external media drive. Keep backups on a different drive than the data they protect.
+**Note on storage:** A media library fills 256 GB fast. Plan a 1-2 TB drive for the EliteDesk (internal if it has a free bay, otherwise external USB), and check its drive slots before buying. Keep backups on a different drive than the data they protect. If the OptiPlex gets an upgrade instead: it has one 2.5" SATA bay and one M.2 slot, and a drive-compatibility listing says the M.2 slot is SATA-only, so buy a SATA SSD, not NVMe.
+
+**vPro note:** The EliteDesk has Intel AMT (remote management). It isn't needed, so leave it disabled unless I'm deliberately learning it, since a poorly secured AMT is a security risk.
 
 ## Working Method
 
@@ -31,8 +31,11 @@ Suggested repo layout:
 homelab/
   README.md
   docs/
-    01-sudo-and-users.md
-    02-ssh-hardening.md
+    01-git-ssh-github.md
+    02-files-scripts-permissions.md
+    03-sudo-and-users.md
+    04-install-ubuntu-server.md
+    05-ssh-hardening.md
     ...
   configs/
   scripts/
@@ -42,11 +45,13 @@ homelab/
 ## 12-Week Plan
 
 ### Weeks 1-2: Foundations
-- [ ] Sudo, users, groups, file permissions
 - [x] Ubuntu running in WSL for learning
-- [ ] Decide: stay on WSL, dual-boot, or install Ubuntu Server on the 7040 (by Weeks 3-4)
-- [ ] SSH hardening (key-only login, disable root login)
+- [x] Git, SSH keys, and GitHub set up
+- [x] File commands, nano, first bash script, rwx permissions
 - [x] Create `homelab` repo structure, README, first write-ups
+- [ ] Sudo and users (in WSL)
+- [ ] Install Ubuntu Server on the EliteDesk (USB installer, wired network), then SSH in from the OptiPlex
+- [ ] SSH hardening on the server (key-only login, disable root login)
 
 ### Weeks 3-4: Security and system basics
 - [ ] Firewall (UFW), fail2ban, updates, reading logs
@@ -56,7 +61,7 @@ homelab/
 ### Weeks 5-6: Docker and media server
 - [ ] Install Docker and Docker Compose
 - [ ] Run Jellyfin in a container with proper storage and permissions
-- [ ] Add external drive for media
+- [ ] Add the media drive to the EliteDesk and set up its mount and permissions
 - [ ] Commit `docker-compose.yml` and write-up
 
 ### Weeks 7-8: Networking (Cisco switch)
