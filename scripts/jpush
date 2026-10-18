@@ -32,5 +32,9 @@ echo "Files in this commit:"
 git status --short
 
 git commit -q -m "$*"
+
+# Pick up anything pushed from elsewhere (another machine, GitHub web upload) first.
+git pull --rebase -q || { echo "Pull failed. Run 'git status' to see what needs fixing."; exit 1; }
+
 git push
 echo "Pushed: $*"
