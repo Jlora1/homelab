@@ -13,6 +13,9 @@ Goal: build a documented Linux homelab and media server, publish everything to G
 | RAM | 16 GB (plenty for Docker, Jellyfin, and more) |
 | Storage | 256 GB (fine for the OS, Docker, and configs) |
 | Network | Old Cisco switch |
+| Current OS | Windows, with Ubuntu running in WSL (used for learning) |
+
+**WSL vs. a real server:** WSL is a good place to learn sudo, users, permissions, scripting, and Git. A real always-on homelab (SSH from other devices, Jellyfin, Docker with open ports, a switch) works best with Linux installed directly on the 7040. Decide around Week 3-4: keep Windows and WSL, dual-boot, or dedicate the 7040 to Ubuntu Server. Until then, the Weeks 1-2 lessons run in WSL.
 
 **Note on storage:** 256 GB is enough for the system, but a media library fills it fast. Plan on adding an external USB drive (1-2 TB) for media and backups around Week 5-6.
 
@@ -40,7 +43,8 @@ homelab/
 
 ### Weeks 1-2: Foundations
 - [ ] Sudo, users, groups, file permissions
-- [ ] Install Ubuntu Server or Debian on the 7040
+- [x] Ubuntu running in WSL for learning
+- [ ] Decide: stay on WSL, dual-boot, or install Ubuntu Server on the 7040 (by Weeks 3-4)
 - [ ] SSH hardening (key-only login, disable root login)
 - [ ] Create `homelab` repo structure, README, first write-ups
 
