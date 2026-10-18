@@ -9,7 +9,7 @@ Goal: build a documented Linux homelab and media server, publish everything to G
 
 | Machine | Role | Specs |
 |---------|------|-------|
-| HP EliteDesk 800 G3 Mini | Always-on server (Ubuntu Server, Docker, Jellyfin) | i5 vPro (7th gen), 8 GB RAM, 256 GB SSD |
+| HP EliteDesk 800 G3 Mini | Always-on server (Ubuntu Server, Docker, Jellyfin) | i5 vPro (7th gen), 8 GB RAM, 256 GB NVMe SSD |
 | Dell OptiPlex 7040 Micro | Daily PC and learning machine (Windows + Ubuntu in WSL) | i5, 16 GB RAM, 256 GB SSD |
 | Cisco switch (old, managed) | Lab networking practice | |
 
@@ -50,7 +50,7 @@ homelab/
 - [x] File commands, nano, first bash script, rwx permissions
 - [x] Create `homelab` repo structure, README, first write-ups
 - [x] Sudo and users (in WSL)
-- [ ] Install Ubuntu Server on the EliteDesk (USB installer, wired network), then SSH in from the OptiPlex
+- [x] Install Ubuntu Server on the EliteDesk (USB installer, wired network), then SSH in from the OptiPlex
 - [ ] SSH hardening on the server (key-only login, disable root login)
 
 ### Weeks 3-4: Security and system basics
@@ -108,4 +108,5 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-10-15 | Git, SSH keys, GitHub | [01-git-ssh-github.md](01-git-ssh-github.md) |
 | 2026-10-16 | Files, scripts, permissions | [02-files-scripts-permissions.md](02-files-scripts-permissions.md) |
 | 2026-10-18 | Sudo and users | [03-sudo-and-users.md](03-sudo-and-users.md) |
-| | Install Ubuntu Server on the EliteDesk | next up |
+| 2026-10-18 | Install Ubuntu Server on the EliteDesk | [04-install-ubuntu-server.md](04-install-ubuntu-server.md) |
+| | SSH hardening on the server | next up |
