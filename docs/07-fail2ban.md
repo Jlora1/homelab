@@ -46,9 +46,6 @@ Results worth noting:
 - Nothing broke. I did open `nano` twice, because the first time I didn't paste the settings in. Checking the file's contents before saving avoids that.
 
 ## What I Learned
-
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - fail2ban reads log files and adds firewall bans for IPs that keep failing.
 - Put custom settings in `jail.local`, not `jail.conf`.
 - `ignoreip` prevents locking myself out from my own network.
