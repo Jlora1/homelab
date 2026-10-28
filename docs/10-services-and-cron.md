@@ -55,13 +55,19 @@ Results worth noting:
 - **`daemon-reload` warning** in `systemctl status ssh`: "unit file ... changed on disk." The update had replaced systemd files. It's harmless, and `sudo systemctl daemon-reload` clears it.
 
 ## What I Learned
-- `systemctl status` shows whether a service is running and its latest log lines. `is-active` gives a one-word answer, which is handy inside scripts.
-- `enable` makes a service start at boot. `start` and `stop` change it only for now.
-- A script needs a first line (`#!/usr/bin/env bash`) and the execute permission (`chmod +x`) to run on its own.
-- `$(command)` puts a command's output inside another command.
-- cron runs commands on a schedule. Use full paths in cron lines, because cron doesn't run with my usual shell setup.
-- Automation proves itself in the log: new lines appeared without me typing anything.
-- The server logs in UTC. Know which time zone I'm reading.
+systemctl status shows whether a service is running and displays recent log messages. systemctl is-active gives a simple yes-or-no style answer, which is useful in scripts.
+
+systemctl enable makes a service start automatically when the server boots up. start and stop only affect the service until the next reboot.
+
+For a script to run like a program, it needs a special first line called a shebang (#!/usr/bin/env bash) and permission to execute, which can be added with chmod +x.
+
+$(command) runs a command and uses its output inside another command.
+
+cron is a tool that automatically runs commands on a schedule. When using cron, it's best to use full file paths because cron does not load your normal shell settings.
+
+The easiest way to confirm automation is working is to check the logs. If new log entries appear without you manually running the command, the automation is doing its job.
+
+Server logs often use UTC time instead of your local time zone. Always make sure you know which time zone the log timestamps are using when troubleshooting.
 
 ## Next
 
