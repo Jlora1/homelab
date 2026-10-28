@@ -40,18 +40,10 @@ Results worth noting:
 - **Typed the key file as a command.** I left off `ssh -i` and ran the key path by itself, so bash said "Permission denied." The key was not harmed. Fix: use the Up arrow to bring back an earlier command that worked.
 
 ## What I Learned
-A good firewall blocks everything by default and only allows the connections that are needed.
-
-When setting up a firewall, allow SSH access first and then turn the firewall on. If you enable the firewall first, you could accidentally lock yourself out of the server.
-
-Before closing your current connection, open a second terminal and test that you can still log in. Keep the first session open until you know everything works.
-
-UFW (Uncomplicated Firewall) protects both IPv4 and IPv6 network traffic, so the same firewall rules apply to both.
-
-- A firewall works best as "block everything, then allow only what's needed" (default deny).
-- Order matters: allow SSH first, then enable the firewall. Doing it the other way can cut off my own connection.
-- Test from a second terminal and keep the first one open until the test works.
-- UFW applies rules to both IPv4 and IPv6.
+A firewall helps protect a server by blocking unwanted network connections. A good setup blocks everything by default and only allows the connections that are needed.
+When setting up a firewall, allow SSH access before turning the firewall on. Otherwise, you could accidentally block your own remote connection.
+Before closing your current SSH session, open a second terminal and make sure you can still log in. Keep the first session open until you've confirmed everything works.
+UFW (Uncomplicated Firewall) manages firewall rules for both IPv4 and IPv6, so the same protection applies to both types of network traffic.
 
 ## Next
 
