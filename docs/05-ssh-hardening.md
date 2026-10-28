@@ -60,16 +60,23 @@ Results worth noting:
 - **`ssh goodmedia` tried to log in as my WSL username** (`admingoodfella`) and got `Permission denied (publickey)`. The shortcut file wasn't being applied, so SSH used my local username. Fix: connect with the full command (`ssh -i ~/.ssh/id_ed25519_goodmedia <server-user>@<server-ip>`) and check the config file with `cat ~/.ssh/config`.
 
 ## What I Learned
+An SSH key pair has two parts: a private key, which stays on my computer, and a public key, which I place on the server.
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
+A passphrase adds extra protection to the private key in case someone gets a copy of it.
 
-- A key pair has a private half that stays on my machine and a public half that goes on the server. The passphrase protects the private key if someone copies it.
-- Key login is much harder to attack than passwords, because there is nothing to guess over the network.
-- Turn password login off only after key login is proven to work, or I can lock myself out.
-- `sshd -t` checks the config before I reload, and `sshd -T` shows what SSH is really using.
-- `reload` applies the new settings without dropping the sessions that are already open.
-- "Permission denied (publickey)" is the right answer when I try to log in without the key.
-- Always check which machine the prompt belongs to before running a command.
+Logging in with SSH keys is more secure than using passwords because attackers cannot try to guess the password over the network.
+
+Before disabling password logins, I should first make sure key-based logins work correctly. Otherwise, I could lock myself out of the server.
+
+The command sshd -t checks the SSH configuration for mistakes before applying changes.
+
+The command sshd -T shows the settings SSH is actually using.
+
+A reload applies new SSH settings without disconnecting users who are already logged in.
+
+If I get the message "Permission denied (publickey)," it means the server expected an SSH key but did not receive a valid one.
+
+Before running any command, I should confirm which computer I'm connected to. This helps prevent running commands on the wrong machine by mistake.
 
 ## Next
 
