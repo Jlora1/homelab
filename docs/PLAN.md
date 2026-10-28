@@ -39,6 +39,7 @@ homelab/
     06-firewall-ufw.md
     07-fail2ban.md
     08-updates.md
+    09-reading-logs.md
     ...
   configs/
   scripts/
@@ -58,7 +59,7 @@ homelab/
 
 ### Weeks 3-4: Security and system basics
 - [x] Firewall (UFW), fail2ban, automatic updates
-- [ ] Reading logs
+- [x] Reading logs
 - [ ] systemd services, cron jobs, simple bash scripts
 - [ ] Write-up: "Hardening a fresh Linux server"
 
@@ -117,4 +118,5 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-10-28 | Firewall (UFW) | [06-firewall-ufw.md](06-firewall-ufw.md) |
 | 2026-10-28 | fail2ban | [07-fail2ban.md](07-fail2ban.md) |
 | 2026-10-28 | Updates and automatic security patches | [08-updates.md](08-updates.md) |
-| | Reading logs | next up |
+| 2026-10-28 | Reading logs | [09-reading-logs.md](09-reading-logs.md) |
+| | systemd services, cron jobs, bash scripts | next up |
