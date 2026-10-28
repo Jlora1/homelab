@@ -52,22 +52,37 @@ sudo visudo -c      # syntax check: parsed OK
 - **`sudo cat /etc/sudoers.d` gave "Is a directory."** That's a folder, so I list it with `ls` and read the files inside.
 
 ## What I Learned
+sudo lets me temporarily use administrator powers by entering my own password.
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-sudo lets me run a command with administrator privileges by using my own password. On Ubuntu, this works because my account belongs to the sudo group.
-id shows information about my account, including my user ID (UID), primary group ID (GID), and all groups I am a member of.
+On Ubuntu, this works because my account is part of the sudo group.
 
-usermod -aG adds a user to a group without removing their existing group memberships. The -a option is important because leaving it out can overwrite the user's current groups.
+The id command shows information about my account, including my user number and the groups I belong to.
 
-Sudo permissions follow a pattern of who can run what, where, and as whom. The rule %sudo ALL=(ALL:ALL) ALL gives members of the sudo group permission to run any command as any user.
+usermod -aG adds a user to a group without removing any groups they already belong to.
 
-The /etc/sudoers file controls sudo permissions and should be edited with visudo, which checks for syntax errors before saving. Additional custom rules can be stored in /etc/sudoers.d/.
+The -a option is important because leaving it out can accidentally remove the user from their existing groups.
 
-If I see "No such file or directory," the path or filename is incorrect. If I see "Permission denied," the path exists but I do not have the required access rights.
+Sudo permissions determine who can run commands, which commands they can run, and which user they can act as.
 
-My Ubuntu system uses sudo-rs, which is a Rust-based implementation of sudo. Even though the software is different, the commands I use day to day are the same.
+A common rule gives members of the sudo group permission to run any command with administrator privileges.
 
-The principle of least privilege means giving users only the permissions they need. For example, allowing someone to restart a specific service instead of giving them full administrative access.
+The /etc/sudoers file controls sudo permissions.
+
+It should be edited with visudo, which checks for mistakes before saving.
+
+Extra permission rules can be stored in /etc/sudoers.d/.
+
+If you see "No such file or directory," the file or path you entered is wrong or doesn't exist.
+
+If you see "Permission denied," the file exists, but you don't have permission to access it.
+
+My Ubuntu system uses sudo-rs, a newer version of sudo written in the Rust programming language.
+
+Even though it's built differently, the commands I use every day stay the same.
+
+The principle of least privilege means giving people only the access they need to do their job.
+
+For example, someone might be allowed to restart a specific service without being given full administrator access.
 
 ## Next
 
