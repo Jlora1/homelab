@@ -41,9 +41,6 @@ Results worth noting:
 - **Typed `y` as a command.** `apt autoremove` had nothing to remove and no prompt, so the `y` ran as a command and gave "command not found." Read the screen before typing an answer.
 
 ## What I Learned
-
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - Most attacks use bugs that already have fixes, so staying patched matters as much as the firewall.
 - `unattended-upgrades` installs security updates automatically. The two lines in `20auto-upgrades` control it.
 - A new kernel only takes effect after a reboot. `uname -r` shows which one is running.
