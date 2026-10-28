@@ -51,7 +51,7 @@ homelab/
 - [x] Create `homelab` repo structure, README, first write-ups
 - [x] Sudo and users (in WSL)
 - [x] Install Ubuntu Server on the EliteDesk (USB installer, wired network), then SSH in from the OptiPlex
-- [ ] SSH hardening on the server (key-only login, disable root login)
+- [x] SSH hardening on the server (key-only login, disable root login)
 
 ### Weeks 3-4: Security and system basics
 - [ ] Firewall (UFW), fail2ban, updates, reading logs
@@ -109,4 +109,5 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-10-16 | Files, scripts, permissions | [02-files-scripts-permissions.md](02-files-scripts-permissions.md) |
 | 2026-10-18 | Sudo and users | [03-sudo-and-users.md](03-sudo-and-users.md) |
 | 2026-10-18 | Install Ubuntu Server on the EliteDesk | [04-install-ubuntu-server.md](04-install-ubuntu-server.md) |
-| | SSH hardening on the server | next up |
+| 2026-10-18 | SSH hardening on the server | [05-ssh-hardening.md](05-ssh-hardening.md) |
+| | Firewall (UFW) | next up |
