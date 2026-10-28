@@ -55,9 +55,6 @@ Results worth noting:
 - **`daemon-reload` warning** in `systemctl status ssh`: "unit file ... changed on disk." The update had replaced systemd files. It's harmless, and `sudo systemctl daemon-reload` clears it.
 
 ## What I Learned
-
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - `systemctl status` shows whether a service is running and its latest log lines. `is-active` gives a one-word answer, which is handy inside scripts.
 - `enable` makes a service start at boot. `start` and `stop` change it only for now.
 - A script needs a first line (`#!/usr/bin/env bash`) and the execute permission (`chmod +x`) to run on its own.
