@@ -42,9 +42,6 @@ What the logs showed:
 - **Sudo password rejected once** (the `password check failed` line above), then accepted.
 
 ## What I Learned
-
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - `journalctl` reads the system journal. `-u` picks one service, `-n` limits the number of lines, `-p err` shows only errors, `-b` limits to this boot, `--since` limits by time, and `-f` follows live.
 - `/var/log/auth.log` records logins and sudo use. It's the first place to look for "who got in?" and "who tried?"
 - Not every error line is a problem. Read the message, then decide if it affects anything I use.
