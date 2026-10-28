@@ -41,6 +41,7 @@ homelab/
     08-updates.md
     09-reading-logs.md
     10-services-and-cron.md
+    11-hardening-a-fresh-linux-server.md
     ...
   configs/
   scripts/
@@ -62,7 +63,7 @@ homelab/
 - [x] Firewall (UFW), fail2ban, automatic updates
 - [x] Reading logs
 - [x] systemd services, cron jobs, simple bash scripts
-- [ ] Write-up: "Hardening a fresh Linux server"
+- [x] Write-up: "Hardening a fresh Linux server"
 
 ### Weeks 5-6: Docker and media server
 - [ ] Install Docker and Docker Compose
@@ -121,4 +122,5 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-10-28 | Updates and automatic security patches | [08-updates.md](08-updates.md) |
 | 2026-10-28 | Reading logs | [09-reading-logs.md](09-reading-logs.md) |
 | 2026-10-28 | systemd services, health-check script, cron | [10-services-and-cron.md](10-services-and-cron.md) |
-| | Write-up: Hardening a fresh Linux server | next up |
+| 2026-10-28 | Write-up: Hardening a fresh Linux server | [11-hardening-a-fresh-linux-server.md](11-hardening-a-fresh-linux-server.md) |
+| | Docker and Docker Compose | next up |
