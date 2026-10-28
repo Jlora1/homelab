@@ -37,6 +37,41 @@ A clean install on a home network with SSH enabled, a normal user with `sudo`, a
 - Pasting into the wrong window runs the text as commands. Wait for nano to open first.
 - A reboot is a useful test, not just a chore.
 
+## Key Configuration
+
+SSH hardening, in `/etc/ssh/sshd_config.d/10-hardening.conf`:
+
+```
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+PermitRootLogin no
+PubkeyAuthentication yes
+```
+
+Firewall:
+
+```bash
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow OpenSSH
+sudo ufw enable
+```
+
+fail2ban, in `/etc/fail2ban/jail.local`:
+
+```
+[DEFAULT]
+bantime  = 1h
+findtime = 10m
+maxretry = 5
+ignoreip = 127.0.0.1/8 ::1 <home-network>/24
+
+[sshd]
+enabled = true
+```
+
+Health check: [`scripts/healthcheck.sh`](../scripts/healthcheck.sh), run by cron every 5 minutes (`*/5 * * * *`).
+
 ## Scope and Next Steps
 
 This is a home-lab server on my local network. Still to do: a fixed address for the server, backups with a tested restore, monitoring, and then Docker and Jellyfin ([plan](PLAN.md)).
