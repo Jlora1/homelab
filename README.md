@@ -14,6 +14,7 @@ A documented Linux homelab and media server, built step by step as a hands-on pa
 
 - [`docs/PLAN.md`](docs/PLAN.md): the 12-week plan and progress log
 - [`docs/11-hardening-a-fresh-linux-server.md`](docs/11-hardening-a-fresh-linux-server.md): start here. A one-page summary of how I secured the server.
+- [`docs/hardening-a-fresh-linux-server.md`](docs/hardening-a-fresh-linux-server.md): summary of how I secured the server (start here)
 - `docs/`: one write-up per lesson (what I did, the commands, what broke, how I fixed it)
 - `configs/`: configuration files (docker-compose, service configs)
 - `scripts/`: bash scripts I've written (`jpush` adds, commits, and pushes this repo in one command; `healthcheck.sh` logs the server's status every 5 minutes via cron)
