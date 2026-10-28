@@ -51,15 +51,11 @@ Results worth noting:
 - **Mistyped my password once** on the first SSH attempt after the reboot, then got in on the second try.
 
 ## What I Learned
-
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
-- A server needs no screen once it's set up: install it, then manage it over SSH from another machine.
-- Storage on Ubuntu Server is layered: the disk is split into partitions, one partition holds LVM, which holds a logical volume, which holds the filesystem. `lsblk` shows the layers, `lvs` shows the logical volumes, and `df -h` shows what's actually usable.
-- The installer's default LVM setup may not use the whole disk. `lvextend -r -l +100%FREE` grows the volume and the filesystem together, and it works on a mounted, running system.
-- After updates, a reboot applies changes to services that are still running old versions. Rebooting and reconnecting is also a quick test that a server recovers on its own.
-- "Connection reset by peer" and "Broken pipe" during a reboot are normal. The server dropped my session.
-
+A server does not need a monitor, keyboard, or mouse after it is set up. Once installed, you can manage it remotely from another computer using SSH.
+Ubuntu Server organizes storage in layers. A hard drive is divided into sections, which are then used to create storage volumes and filesystems. Commands like lsblk, lvs, and df -h help show how the storage is organized and how much space is available.
+The default installation may not use all the available disk space. The command lvextend -r -l +100%FREE can expand the storage and filesystem to use the remaining free space without shutting down the server.
+After installing updates, restarting the server ensures that all services begin using the updated software. Rebooting is also a good way to confirm that the server can start back up correctly on its own.
+Messages such as "Connection reset by peer" or "Broken pipe" during a reboot are normal. They simply mean the server disconnected your remote session while it was restarting.
 ## Next
 
 SSH hardening: key-only login, disabling root login, and other basic protections on the server.
