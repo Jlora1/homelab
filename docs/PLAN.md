@@ -36,6 +36,9 @@ homelab/
     03-sudo-and-users.md
     04-install-ubuntu-server.md
     05-ssh-hardening.md
+    06-firewall-ufw.md
+    07-fail2ban.md
+    08-updates.md
     ...
   configs/
   scripts/
@@ -54,7 +57,8 @@ homelab/
 - [x] SSH hardening on the server (key-only login, disable root login)
 
 ### Weeks 3-4: Security and system basics
-- [ ] Firewall (UFW), fail2ban, updates, reading logs
+- [x] Firewall (UFW), fail2ban, automatic updates
+- [ ] Reading logs
 - [ ] systemd services, cron jobs, simple bash scripts
 - [ ] Write-up: "Hardening a fresh Linux server"
 
@@ -110,4 +114,7 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-10-18 | Sudo and users | [03-sudo-and-users.md](03-sudo-and-users.md) |
 | 2026-10-18 | Install Ubuntu Server on the EliteDesk | [04-install-ubuntu-server.md](04-install-ubuntu-server.md) |
 | 2026-10-18 | SSH hardening on the server | [05-ssh-hardening.md](05-ssh-hardening.md) |
-| | Firewall (UFW) | next up |
+| 2026-10-28 | Firewall (UFW) | [06-firewall-ufw.md](06-firewall-ufw.md) |
+| 2026-10-28 | fail2ban | [07-fail2ban.md](07-fail2ban.md) |
+| 2026-10-28 | Updates and automatic security patches | [08-updates.md](08-updates.md) |
+| | Reading logs | next up |

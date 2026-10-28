@@ -48,6 +48,7 @@ Results worth noting:
 - `sshd -t` printed nothing, which means the config is valid.
 - `sshd -T` showed `passwordauthentication no`, `kbdinteractiveauthentication no`, and `permitrootlogin no`.
 - Both refusal tests from WSL ended with `Permission denied (publickey)`.
+- Key login still works after hardening. I logged in from WSL with `ssh -i ~/.ssh/id_ed25519_goodmedia <server-user>@<server-ip>` and my key passphrase, with no server password asked.
 - The file is named `10-...` on purpose. SSH uses the first value it finds for a setting, and the files in `sshd_config.d` are read in order, so a low number makes sure my settings win.
 
 ## What Broke
