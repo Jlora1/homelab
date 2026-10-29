@@ -1,0 +1,20 @@
+# Jellyfin media server on the homelab server (see docs/13-jellyfin-in-docker.md)
+# Run from the folder holding this file:  sudo docker compose up -d
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    user: "1000:1000"          # my user, so the container can use the folders below
+    group_add:
+      - "991"                  # numeric ID of the "render" group (getent group render)
+    ports:
+      - "8096:8096"            # web interface. Do NOT forward this port on the router.
+    volumes:
+      - /srv/jellyfin/config:/config
+      - /srv/jellyfin/cache:/cache
+      - /srv/media:/media:ro   # read-only: Jellyfin can't change or delete my files
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128   # Intel Quick Sync video engine
+    environment:
+      - TZ=America/New_York
+    restart: unless-stopped

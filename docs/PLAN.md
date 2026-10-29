@@ -43,6 +43,7 @@ homelab/
     10-services-and-cron.md
     11-hardening-a-fresh-linux-server.md
     12-install-docker.md
+    13-jellyfin-in-docker.md
     ...
   configs/
   scripts/
@@ -68,9 +69,9 @@ homelab/
 
 ### Weeks 5-6: Docker and media server
 - [x] Install Docker and Docker Compose
-- [ ] Run Jellyfin in a container with proper storage and permissions
+- [x] Run Jellyfin in a container with proper storage and permissions
 - [ ] Add the media drive to the EliteDesk and set up its mount and permissions
-- [ ] Commit `docker-compose.yml` and write-up
+- [x] Commit `docker-compose.yml` and write-up
 
 ### Weeks 7-8: Networking (Cisco switch)
 - [ ] IP addressing, DHCP, DNS basics, static IP for the server
@@ -125,4 +126,5 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-10-28 | systemd services, health-check script, cron | [10-services-and-cron.md](10-services-and-cron.md) |
 | 2026-10-28 | Write-up: Hardening a fresh Linux server | [11-hardening-a-fresh-linux-server.md](11-hardening-a-fresh-linux-server.md) |
 | 2026-10-28 | Install Docker and Docker Compose | [12-install-docker.md](12-install-docker.md) |
-| | Jellyfin in Docker | next up |
+| 2026-10-28 | Jellyfin in Docker (Quick Sync hardware transcoding) | [13-jellyfin-in-docker.md](13-jellyfin-in-docker.md) |
+| | Fixed IP for the server, then media drive | next up |
