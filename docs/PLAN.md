@@ -77,6 +77,8 @@ homelab/
 - [ ] IP addressing, DHCP, DNS basics, static IP for the server
 - [ ] Switch basics: console access, hostname, VLANs, saving configs
 - [ ] Optional: Pi-hole for DNS practice
+- [ ] Make Docker respect the firewall (Docker bypasses UFW for published ports; restrict with `DOCKER-USER` rules and test)
+- [ ] Remote access VPN (WireGuard or Tailscale) to reach the server and add my own media from outside the house, with no router port forwarding for Jellyfin
 
 ### Weeks 9-10: Backups and file sharing
 - [ ] Samba file shares
