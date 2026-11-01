@@ -45,6 +45,7 @@ homelab/
     12-install-docker.md
     13-jellyfin-in-docker.md
     14-fixed-ip-dhcp-reservation.md
+    15-docker-and-the-firewall.md
     ...
   configs/
   scripts/
@@ -79,7 +80,7 @@ homelab/
 - [ ] IP addressing and DNS basics
 - [ ] Switch basics: console access, hostname, VLANs, saving configs
 - [ ] Optional: Pi-hole for DNS practice
-- [ ] Make Docker respect the firewall (Docker bypasses UFW for published ports; restrict with `DOCKER-USER` rules and test)
+- [x] Make Docker respect the firewall (Docker bypasses UFW for published ports; restrict with `DOCKER-USER` rules and test)
 - [ ] Remote access VPN (WireGuard or Tailscale) to reach the server and add my own media from outside the house, with no router port forwarding for Jellyfin
 
 ### Weeks 9-10: Backups and file sharing
@@ -132,4 +133,5 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-10-28 | Install Docker and Docker Compose | [12-install-docker.md](12-install-docker.md) |
 | 2026-10-28 | Jellyfin in Docker (Quick Sync hardware transcoding) | [13-jellyfin-in-docker.md](13-jellyfin-in-docker.md) |
 | 2026-11-01 | Fixed IP for the server (DHCP reservation) | [14-fixed-ip-dhcp-reservation.md](14-fixed-ip-dhcp-reservation.md) |
-| | Docker and the firewall (`DOCKER-USER` rules) | next up |
+| 2026-11-01 | Docker and the firewall (`DOCKER-USER` rules) | [15-docker-and-the-firewall.md](15-docker-and-the-firewall.md) |
+| | Tailscale (remote access) | next up |

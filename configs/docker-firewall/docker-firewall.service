@@ -1,0 +1,15 @@
+# Installed on the server as /etc/systemd/system/docker-firewall.service
+# Enable with: sudo systemctl daemon-reload && sudo systemctl enable --now docker-firewall.service
+[Unit]
+Description=Restrict Docker published ports to the home network
+After=docker.service
+Requires=docker.service
+PartOf=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/docker-firewall.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
