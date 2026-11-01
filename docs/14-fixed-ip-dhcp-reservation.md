@@ -34,7 +34,7 @@ In the router's web page (opened in a browser on my PC at its address), I made t
 
 Results worth noting:
 - The router's Connection List now shows `goodmedia` as **Static** with a lease of **Never**, so it doesn't expire.
-- On the server, `ip -br address show eno1` still showed `<server-ip>/24` after I logged in again.
+- After I restarted the server (`uptime -p` showed `up 3 minutes` when I logged back in), `ip -br address show eno1` still showed `<server-ip>/24`. The server asked the router for an address again and got the same one.
 - The server's IPv6 address changed at some point, because the internet provider changes the IPv6 prefix over time. That doesn't matter here. I fixed the IPv4 address, which is what SSH, Jellyfin and the firewall rules use.
 
 ## What Broke
