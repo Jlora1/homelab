@@ -44,6 +44,7 @@ homelab/
     11-hardening-a-fresh-linux-server.md
     12-install-docker.md
     13-jellyfin-in-docker.md
+    14-fixed-ip-dhcp-reservation.md
     ...
   configs/
   scripts/
@@ -74,7 +75,8 @@ homelab/
 - [x] Commit `docker-compose.yml` and write-up
 
 ### Weeks 7-8: Networking (Cisco switch)
-- [ ] IP addressing, DHCP, DNS basics, static IP for the server
+- [x] Fixed IP for the server (DHCP reservation on the router)
+- [ ] IP addressing and DNS basics
 - [ ] Switch basics: console access, hostname, VLANs, saving configs
 - [ ] Optional: Pi-hole for DNS practice
 - [ ] Make Docker respect the firewall (Docker bypasses UFW for published ports; restrict with `DOCKER-USER` rules and test)
@@ -129,4 +131,5 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-10-28 | Write-up: Hardening a fresh Linux server | [11-hardening-a-fresh-linux-server.md](11-hardening-a-fresh-linux-server.md) |
 | 2026-10-28 | Install Docker and Docker Compose | [12-install-docker.md](12-install-docker.md) |
 | 2026-10-28 | Jellyfin in Docker (Quick Sync hardware transcoding) | [13-jellyfin-in-docker.md](13-jellyfin-in-docker.md) |
-| | Fixed IP for the server, then media drive | next up |
+| 2026-11-01 | Fixed IP for the server (DHCP reservation) | [14-fixed-ip-dhcp-reservation.md](14-fixed-ip-dhcp-reservation.md) |
+| | Docker and the firewall (`DOCKER-USER` rules) | next up |
