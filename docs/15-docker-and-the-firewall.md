@@ -57,6 +57,12 @@ Results worth noting:
 - I haven't checked IPv6 for Docker's ports. UFW's IPv6 rules apply to the Docker proxy listener, but I haven't tested it.
 - Other approaches exist (for example, writing rules in UFW's `after.rules` so `ufw route` can manage Docker traffic). I chose `DOCKER-USER` because it's simple and easy to see.
 
+## Decision: Per-Port Rules
+
+A broader rule is possible: drop all *new* connections from outside the home network (`-m conntrack --ctstate NEW`) instead of naming a port, which would cover every container port at once. I chose not to use it for now. I want every opening in my firewall to be one I wrote on purpose, and I haven't tested the broader version on this server.
+
+**To publish another container port later**, add a matching rule to `docker-firewall.sh` (copy the `RULE` and `iptables -C ... || iptables -I ...` lines with the new port number), then run `sudo systemctl restart docker-firewall.service` and check `sudo iptables -L DOCKER-USER -n -v --line-numbers`. Test from a device that should be blocked before trusting it.
+
 ## What Broke
 
 - **Pasted old output again.** The first part of one of my pastes was the previous outputs, so I couldn't tell which result was new. Run one step at a time and paste only the new output.
