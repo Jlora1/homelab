@@ -47,6 +47,7 @@ homelab/
     14-fixed-ip-dhcp-reservation.md
     15-docker-and-the-firewall.md
     16-tailscale.md
+    17-copying-media-to-the-server.md
     ...
   configs/
   scripts/
@@ -135,5 +136,6 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-10-28 | Jellyfin in Docker (Quick Sync hardware transcoding) | [13-jellyfin-in-docker.md](13-jellyfin-in-docker.md) |
 | 2026-11-01 | Fixed IP for the server (DHCP reservation) | [14-fixed-ip-dhcp-reservation.md](14-fixed-ip-dhcp-reservation.md) |
 | 2026-11-01 | Docker and the firewall (`DOCKER-USER` rules) | [15-docker-and-the-firewall.md](15-docker-and-the-firewall.md) |
-| 2026-11-01 | Tailscale (remote access VPN) | [16-tailscale.md](16-tailscale.md) |
-| | Tailscale on the PC, copy files over the tunnel, then the media drive | next up |
+| 2026-11-01 | Tailscale (remote access VPN), tested from the PC | [16-tailscale.md](16-tailscale.md) |
+| 2026-11-01 | Copy my own media with scp and play it in Jellyfin | [17-copying-media-to-the-server.md](17-copying-media-to-the-server.md) |
+| | fail2ban ignore list for the tailnet, then the media drive | next up |

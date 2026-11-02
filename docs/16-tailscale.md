@@ -1,7 +1,7 @@
 # Lesson 16: Tailscale (Remote Access Without Opening Ports)
 
 **Date:** 2026-11-01
-**Machine:** HP EliteDesk 800 G3 Mini (server `goodmedia`), plus my phone
+**Machine:** HP EliteDesk 800 G3 Mini (server `goodmedia`), my phone, and my Windows PC (managed from WSL)
 
 ## Goal
 
@@ -19,6 +19,8 @@ Reach my home server (SSH, Jellyfin, copying my own files) from anywhere, withou
 - Downloaded Tailscale's official installer script to a file instead of piping it straight into the shell, so I could look at it before running it, then installed Tailscale on the server.
 - Joined the server to my tailnet, approving the device in the browser, then checked its status.
 - Installed the Tailscale app on my phone, signed in with the same account, and tested.
+- Installed Tailscale on my Windows PC, signed in with the same account, and tested SSH and file copying (`scp`) from WSL to the server's `100.` address.
+- Disabled key expiry for the server, the PC and the phone in the admin console.
 
 ```bash
 curl -fsSL https://tailscale.com/install.sh -o /tmp/tailscale-install.sh
@@ -51,11 +53,37 @@ Results worth noting:
 
 - Nothing broke. The first time I tested, I wasn't sure which network the phone was on, so I repeated the test with Wi-Fi on and off to be sure. Name the network you're testing from.
 
-## Still To Do
+## Testing From My PC (WSL)
 
-- In the Tailscale admin console, disable key expiry for the server (Machines, the three dots on the `goodmedia` row, Disable key expiry). By default, a device's key expires after a while, and then the server would drop off my tailnet until I sign in again. I'll leave expiry on for my phone and PC.
-- Install Tailscale on my Windows PC, then test SSH and file copying (`scp`) to the server over the tunnel, which is how I'll add my own media from outside the house.
-- I haven't tested SSH or file copying over Tailscale yet.
+WSL reaches the tailnet through the Windows Tailscale app, so I used the server's `100.` address from WSL:
+
+```bash
+ping -c 3 <server-tailscale-ip>
+ssh -i ~/.ssh/id_ed25519_goodmedia <server-user>@<server-tailscale-ip>
+
+# On the server, check how this session arrived
+echo $SSH_CONNECTION
+
+# From WSL: copy a file over the tunnel and read it back
+scp -i ~/.ssh/id_ed25519_goodmedia ~/tailnet-test.txt <server-user>@<server-tailscale-ip>:/home/<server-user>/tailnet-test.txt
+ssh -i ~/.ssh/id_ed25519_goodmedia <server-user>@<server-tailscale-ip> "cat ~/tailnet-test.txt && rm ~/tailnet-test.txt"
+```
+
+Results worth noting:
+- The ping from WSL got replies in about 2-12 ms with 0% loss.
+- SSH asked me to trust the host key on first use, and said the key was already known under the server's LAN address. That is the same server, reached by a second address.
+- `echo $SSH_CONNECTION` printed my PC's tailnet address, the client port, the server's tailnet address and port 22, which shows the session really came over Tailscale and not over the home network.
+- `scp` copied the file (`100%`) and `cat` printed it back.
+- `who` and `last` printed nothing on this Ubuntu version, because newer releases no longer keep the old login records those commands read. `$SSH_CONNECTION` is a simple alternative for the current session.
+
+## Key Expiry
+
+By default a device's Tailscale key expires after a while, and the device would drop off the tailnet until I signed in again. For a server I can't easily reach, that could lock me out, so I disabled key expiry (Machines, the three dots on the device's row, Disable key expiry) for the server, the PC and the phone.
+
+## Not Tested Yet
+
+- SSH and `scp` from **outside my home network** (for example the PC on a phone hotspot). Tests from home prove the tunnel addresses work, but I haven't proven it from a different network.
+- `fail2ban` only ignores my home network (`192.168.1.0/24`), so failed logins arriving over Tailscale count toward a ban. I plan to add the tailnet range (`100.64.0.0/10`) to `ignoreip`.
 
 ## What I Learned
 
@@ -66,7 +94,9 @@ Results worth noting:
 - Download and look at an installer before running it, instead of piping it into the shell.
 - Firewall rules are tied to network interfaces. My Docker rule watches the regular port, so tunnel traffic comes through a different door.
 - Test from the places that matter: home Wi-Fi, away from home, and with the VPN off.
+- `echo $SSH_CONNECTION` shows which address a session came in on, which proves which network path was used.
+- Keys expire by default. Decide per device whether that's what I want, and turn it off for a headless server.
 
 ## Next
 
-Install Tailscale on my PC, test SSH and file copying over the tunnel, and then add a bigger media drive.
+Copy my own media to the server and see it appear in Jellyfin ([lesson 17](17-copying-media-to-the-server.md)), then add a bigger media drive.
