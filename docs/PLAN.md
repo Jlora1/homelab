@@ -138,4 +138,5 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-11-01 | Docker and the firewall (`DOCKER-USER` rules) | [15-docker-and-the-firewall.md](15-docker-and-the-firewall.md) |
 | 2026-11-01 | Tailscale (remote access VPN), tested from the PC | [16-tailscale.md](16-tailscale.md) |
 | 2026-11-01 | Copy my own media with scp and play it in Jellyfin | [17-copying-media-to-the-server.md](17-copying-media-to-the-server.md) |
-| | fail2ban ignore list for the tailnet, then the media drive | next up |
+| 2026-11-01 | fail2ban now ignores the tailnet range | [07-fail2ban.md](07-fail2ban.md) |
+| | The media drive (check the EliteDesk's drive slots first) | next up |

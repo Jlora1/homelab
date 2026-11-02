@@ -51,6 +51,25 @@ Results worth noting:
 - `ignoreip` prevents locking myself out from my own network.
 - Test the config (`-t`) before restarting a service.
 
+## Update (Lesson 17): Ignoring My Tailnet
+
+After adding Tailscale (lesson 16) I log in from the `100.` tailnet addresses as well as from the home network, so failed logins over Tailscale would count toward a ban. I added the tailnet range to the ignore list.
+
+```bash
+# On the server: change the ignoreip line, test, restart, and check
+sudo sed -i 's|^ignoreip = .*|ignoreip = 127.0.0.1/8 ::1 192.168.1.0/24 100.64.0.0/10|' /etc/fail2ban/jail.local
+sudo head -12 /etc/fail2ban/jail.local
+sudo fail2ban-client -t && sudo systemctl restart fail2ban
+sudo systemctl is-active fail2ban
+sudo fail2ban-client get sshd ignoreip
+```
+
+- `100.64.0.0/10` is the range Tailscale uses for device addresses.
+- The check listed `127.0.0.0/8`, `192.168.1.0/24`, `100.64.0.0/10` and `::1`.
+- What broke: a stray `x` got typed at the start of `jail.local`, so the config test failed with "File contains no section headers." Because the commands were joined with `&&`, the restart never ran and fail2ban kept running with its old, working settings. I fixed it with `sed` and checked the top of the file with `head`.
+- Right after a restart, `fail2ban-client` printed "Failed to access socket path... Is fail2ban running?" because the service needs a second to start. Running `systemctl is-active fail2ban` and trying again worked.
+- Lesson: chain test and restart with `&&` so a bad config never gets applied, and look at the file after editing it.
+
 ## Next
 
 Updates: install what's waiting and confirm automatic security updates are on.

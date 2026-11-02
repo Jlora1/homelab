@@ -77,4 +77,4 @@ Results worth noting:
 
 ## Next
 
-Add the tailnet range to the `fail2ban` ignore list, then a bigger media drive for the library.
+A bigger media drive for the library, with a mount and permissions that match what Jellyfin expects.
