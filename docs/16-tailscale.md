@@ -82,7 +82,7 @@ By default a device's Tailscale key expires after a while, and the device would 
 
 ## Not Tested Yet
 
-- SSH and `scp` from **outside my home network** (for example the PC on a phone hotspot). Tests from home prove the tunnel addresses work, but I haven't proven it from a different network.
+- SSH and `scp` from my PC while **outside my home network** (for example on a hotspot, or at a library or a friend's Wi-Fi). Jellyfin was already reached from my phone on cellular data through the tunnel, and SSH and `scp` work from the PC on my home network, but I haven't run SSH or `scp` from the PC on a different network. I didn't have a hotspot available, so I'll test this next time I'm on another network.
 - `fail2ban` originally only ignored my home network, so failed logins arriving over Tailscale would have counted toward a ban. I added the tailnet range (`100.64.0.0/10`) to `ignoreip` and recorded it in [lesson 07](07-fail2ban.md).
 
 ## What I Learned
