@@ -9,13 +9,28 @@ Goal: build a documented Linux homelab and media server, publish everything to G
 
 | Machine | Role | Specs |
 |---------|------|-------|
-| HP EliteDesk 800 G3 Mini | Always-on server (Ubuntu Server, Docker, Jellyfin) | i5 vPro (7th gen), 8 GB RAM, 256 GB NVMe SSD |
-| Dell OptiPlex 7040 Micro | Daily PC and learning machine (Windows + Ubuntu in WSL) | i5, 16 GB RAM, 256 GB SSD |
-| Cisco switch (old, managed) | Lab networking practice | |
+| HP EliteDesk 800 G3 Mini | Always-on server (Ubuntu Server, Docker, Jellyfin; later Pi-hole and monitoring) | i5 vPro (7th gen), 8 GB RAM, 256 GB NVMe SSD |
+| Dell OptiPlex 7040 Tower | Planned: Proxmox host, shared storage and backups | i7-6700, 16 GB RAM, 238 GB SSD |
+| Lenovo ThinkCentre Tiny | Planned: OPNsense firewall/router (second network port via a mini PCIe Intel card) | i5-4570T, 16 GB RAM, 256 GB SSD |
+| Lenovo ThinkCentre M93p Tiny | Planned: lab and practice virtual machines | i7-4765T, 16 GB RAM, 128 GB SSD |
+| TP-Link Omada SG2210XMP-M2 | Managed switch for VLAN practice, and PoE for access points | 8 x 2.5 GbE PoE+ (160 W), 2 x 10G SFP+ |
+| Loose 3.5" hard drives | Media storage and backups (health check first) | 4 TB WD Re, 3 x 1 TB (about 2017-2018) |
+| Windows PC (WSL) | Daily PC, not part of the lab; used for WSL practice and for managing the servers over SSH | |
 
-**Why two machines:** The EliteDesk runs Linux directly, like a real server, and is managed over SSH from the OptiPlex. The OptiPlex stays on Windows so there's always a working daily machine. Early lessons (Git, files, permissions, sudo and users) run in WSL on the OptiPlex; the server work starts once Ubuntu Server is installed on the EliteDesk.
+**Why several machines:** The EliteDesk runs Linux directly, like a real server, and is managed over SSH from my Windows PC. Early lessons (Git, files, permissions, sudo and users) run in WSL on the Windows PC; the server work started once Ubuntu Server was installed on the EliteDesk. The other machines are being given jobs one at a time, in this order: Proxmox on the Tower, services on the EliteDesk, a lab machine, and OPNsense last (the whole house's internet depends on it).
 
-**Note on storage:** A media library fills 256 GB fast. Plan a 1-2 TB drive for the EliteDesk (internal if it has a free bay, otherwise external USB), and check its drive slots before buying. Keep backups on a different drive than the data they protect. If the OptiPlex gets an upgrade instead: it has one 2.5" SATA bay and one M.2 slot, and a drive-compatibility listing says the M.2 slot is SATA-only, so buy a SATA SSD, not NVMe.
+**Note on storage:** A media library fills 256 GB fast. The 4 TB drive goes in the Tower and the 1 TB drives hold backups, which is enough while the library is under 1 TB. When it grows, add a bigger backup drive. Keep backups on a different drive than the data they protect, and check each old drive's health (SMART) before trusting it. The Tower has one 3.5" bay (the optical bay needs checking), so spare drives live in a USB dock or enclosure.
+
+**Layout decisions so far:**
+- Jellyfin stays on the EliteDesk, because its 7th-gen Quick Sync chip transcodes 10-bit HEVC and HDR, which the Tower's 6th-gen chip does not.
+- The ThinkCentre Tiny only has one network port and a mini PCIe Wi-Fi slot, so the second port comes from a mini PCIe Intel card (the Wi-Fi card is removed). An M.2 module I bought does not fit it.
+- OPNsense is tested on a separate small network before it replaces the Verizon router. Before that: a UPS and the BIOS "After Power Loss: Power On" setting, because a power cut already left the server off for four days.
+- Wi-Fi comes from separate access points wired to the switch, not from the router box.
+
+**Later (parked):**
+- Local AI tools, on dedicated hardware bought for the purpose. The gaming PC stays out of the lab.
+- A bigger backup drive once the library passes 1 TB.
+- A UPS (battery backup) for the always-on machines.
 
 **vPro note:** The EliteDesk has Intel AMT (remote management). It isn't needed, so leave it disabled unless I'm deliberately learning it, since a poorly secured AMT is a security risk.
 
@@ -78,10 +93,10 @@ homelab/
 - [ ] Add the media drive to the EliteDesk and set up its mount and permissions
 - [x] Commit `docker-compose.yml` and write-up
 
-### Weeks 7-8: Networking (Cisco switch)
+### Weeks 7-8: Networking (TP-Link managed switch)
 - [x] Fixed IP for the server (DHCP reservation on the router)
 - [ ] IP addressing and DNS basics
-- [ ] Switch basics: console access, hostname, VLANs, saving configs
+- [ ] Switch basics: management page, VLANs, PoE, backing up the config
 - [ ] Optional: Pi-hole for DNS practice
 - [x] Make Docker respect the firewall (Docker bypasses UFW for published ports; restrict with `DOCKER-USER` rules and test)
 - [x] Remote access VPN (WireGuard or Tailscale) to reach the server and add my own media from outside the house, with no router port forwarding for Jellyfin
