@@ -10,7 +10,7 @@ Goal: build a documented Linux homelab and media server, publish everything to G
 | Machine | Role | Specs |
 |---------|------|-------|
 | HP EliteDesk 800 G3 Mini | Always-on server (Ubuntu Server, Docker, Jellyfin; later Pi-hole and monitoring) | i5 vPro (7th gen), 8 GB RAM, 256 GB NVMe SSD |
-| Dell OptiPlex 7040 Tower | Planned: Proxmox host, shared storage and backups | i7-6700, 16 GB RAM, 238 GB SSD |
+| Dell OptiPlex 7040 Tower | Proxmox VE 9.2 host (installed), backup storage on two 1 TB drives | i7-6700, 16 GB RAM, 238 GB SSD |
 | Lenovo ThinkCentre Tiny | Planned: OPNsense firewall/router (second network port via a mini PCIe Intel card) | i5-4570T, 16 GB RAM, 256 GB SSD |
 | Lenovo ThinkCentre M93p Tiny | Planned: lab and practice virtual machines | i7-4765T, 16 GB RAM, 128 GB SSD |
 | TP-Link Omada SG2210XMP-M2 | Managed switch for VLAN practice, and PoE for access points | 8 x 2.5 GbE PoE+ (160 W), 2 x 10G SFP+ |
@@ -64,6 +64,8 @@ homelab/
     16-tailscale.md
     17-copying-media-to-the-server.md
     18-ssh-agent-and-shortcuts.md
+    19-install-proxmox.md
+    20-drive-health-and-backup-storage.md
     ...
   configs/
   scripts/
@@ -156,4 +158,7 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-11-01 | Copy my own media with scp and play it in Jellyfin | [17-copying-media-to-the-server.md](17-copying-media-to-the-server.md) |
 | 2026-11-01 | fail2ban now ignores the tailnet range | [07-fail2ban.md](07-fail2ban.md) |
 | 2026-11-01 | ssh-agent, keychain and the `ssh goodmedia` shortcut | [18-ssh-agent-and-shortcuts.md](18-ssh-agent-and-shortcuts.md) |
-| | The media drive (check the EliteDesk's drive slots first) | next up |
+| 2026-11-08 | Install Proxmox VE on the OptiPlex Tower | [19-install-proxmox.md](19-install-proxmox.md) |
+| 2026-11-09 | Drive health (SMART) and backup storage in Proxmox | [20-drive-health-and-backup-storage.md](20-drive-health-and-backup-storage.md) |
+| | First practice VM, a backup job for it, and a test restore | next up |
+| | The media drive (the old 4 TB failed its SMART test; buy a replacement with a warranty) | parked |
