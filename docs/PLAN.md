@@ -31,6 +31,7 @@ Goal: build a documented Linux homelab and media server, publish everything to G
 - Local AI tools, on dedicated hardware bought for the purpose. The gaming PC stays out of the lab.
 - A bigger backup drive once the library passes 1 TB.
 - A UPS (battery backup) for the always-on machines.
+- A media automation stack, modelled on a diagram of someone else's setup: Seerr (requests), Sonarr and Radarr (manage TV and movies), Prowlarr (indexers), qBittorrent (downloads), feeding Jellyfin through shared storage. Run it as separate containers on the Tower's Proxmox, after the media drive and Samba shares are done. Only use it with content I'm allowed to have (my own media, public domain, Creative Commons, Linux ISOs), and decide how download traffic is kept off my home IP before starting.
 
 **vPro note:** The EliteDesk has Intel AMT (remote management). It isn't needed, so leave it disabled unless I'm deliberately learning it, since a poorly secured AMT is a security risk.
 
