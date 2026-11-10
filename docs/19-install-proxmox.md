@@ -22,7 +22,7 @@ Turn the Tower into a virtualization host with Proxmox VE, so I can run practice
   - **Target harddisk:** the 256 GB Samsung SSD (`/dev/nvme0n1`), with the **ext4** filesystem. I picked ext4 over ZFS because the Tower has 16 GB of RAM and ZFS uses a lot of it.
   - **Location and time zone:** United States, America/New_York, U.S. keyboard.
   - **Password and email:** a strong root password, typed only into the installer.
-  - **Network:** the wired port, with the address the router had just given the Tower, kept as its address. Reserving it in the router so it never changes is still to do.
+  - **Network:** the wired port, with the address the router had just given the Tower, kept as its address. I reserved it in the router afterwards, so it never changes (see [lesson 21](21-new-ssh-key-and-locking-down-the-servers.md)).
   - **Summary:** checked the disk, filesystem, time zone and network, then installed.
 - Took the USB stick out when it rebooted and opened `https://<tower-ip>:8006` from my PC. The browser warned about the certificate because Proxmox makes its own. I accepted it, since it's my own machine on my own network, and logged in as `root`.
 - Fixed the update sources (see below), then updated everything from the web page's Shell, and rebooted for the new kernel.
@@ -69,7 +69,7 @@ Results worth noting:
 
 ## Not Done Yet
 
-- Confirm in the BIOS that **Intel Virtualization Technology** is on, and set **AC Recovery** to **Power On** so the Tower restarts itself after a power outage.
+- Intel virtualization turned out to be on (checked in lesson 21). Still to confirm: **AC Recovery** set to **Power On**, so the Tower restarts itself after a power outage.
 - A UPS to protect the drives from power loss.
 
 ## Next

@@ -61,6 +61,8 @@ Results worth noting:
 - On the Tower, `sshd -T` showed `passwordauthentication no`. It showed `permitrootlogin without-password`, which is the older name for `prohibit-password`, so that is expected.
 - The password-only test ended with **Permission denied (publickey)** on both servers, and neither asked for a password.
 - `ssh goodmedia` and `ssh pve` both log in from the PC, and `exit` closes them cleanly.
+- After the Tower came back, `grep -c vmx /proc/cpuinfo` printed **16** (the flag shows twice for each of the 8 threads), so Intel virtualization is on. `uptime -p` showed it had just restarted.
+- The router's Connection List shows the Tower (`192.168.1.178`, MAC `64:00:6A:18:EE:5C`) as **Static** with a lease of **Never**.
 
 ## What Broke
 
@@ -68,6 +70,8 @@ Results worth noting:
 - **I pasted sample output as commands.** Lines such as `PermitRootLogin ...` that were meant to show what to expect got run as commands and answered `command not found`. Nothing was harmed, but it's easy to mistake for a real error.
 - **I typed `cat` without a file name.** It sat waiting for input until I pressed **Ctrl+C**. The command needed `cat ~/.ssh/id_ed25519.pub`.
 - **Some tests ran on the wrong machine.** A few commands went into a window that was still logged into a server, so the test was the server connecting to itself. That still tested the same SSH service, but I had to check which prompt I was on (`goodefella@...` is my PC, `root@pve` and `lzmula@goodmedia` are the servers).
+- **The Tower wouldn't start after I unplugged it.** I had unplugged it to get to the BIOS settings. The first photo showed the blue GRUB boot menu, and a later one showed a blurry error screen I couldn't read. Then the Dell screen said **"Alert! Keyboard not found"** with F1 (retry boot), F2 (setup) and F5 (diagnostics). The keyboard wasn't being seen, so it stopped and waited. <!-- TODO: note which port or cable fixed it -->
+- **I guessed at the cause.** From a blurry photo I thought it was the SATA problem from lesson 19. In BIOS Setup, **SATA Operation** was already **AHCI**, and the boot list showed both `proxmox` and the Samsung SSD, so that wasn't it. Looking before changing a setting saved me from "fixing" something that wasn't broken.
 - **My Git email had a leading space** the first time, which I fixed and checked again.
 
 ## How I Fixed It
@@ -86,13 +90,15 @@ Results worth noting:
 - `sshd -T` shows what the server will really use, which matters when several files set the same option.
 - Turning off SSH passwords makes a lost key a real problem, so the key has to be backed up before it's needed.
 - Check the prompt (`user@host`) before running a command, so I know which machine it affects.
+- A pause at "Keyboard not found" is a BIOS alert and not a broken install. A server that runs without a keyboard may need that check turned off.
+- Look at a setting before changing it. The cause I guessed from a blurry photo was wrong.
 - Public keys are safe to share. Private keys and passphrases never get pasted anywhere.
 
 ## Not Done Yet
 
 - Confirm the backup drive and where the stick is kept, and write the passphrase down separately from it.
 - Test a key login from outside the home network, over Tailscale.
-- On the Tower: check that SATA is still **AHCI**, turn on **Intel Virtualization Technology**, set **AC Recovery** to **Power On**, and reserve `192.168.1.178` in the router.
+- On the Tower, confirm **AC Recovery** is set to **Power On**, and decide whether to turn off the keyboard check under **POST Behavior**. <!-- TODO: note what I actually changed in BIOS -->
 - Install the 23 waiting updates on the EliteDesk.
 - Update the lessons that say my old WSL was set up a different way.
 
