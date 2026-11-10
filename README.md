@@ -11,7 +11,7 @@ A documented Linux homelab and media server, built step by step as a hands-on pa
 | Dell OptiPlex 7040 Tower | Proxmox VE host, with backup storage on two 1 TB drives | Intel i7-6700, 16 GB RAM, 238 GB SSD |
 | Protectli Vault FW4C | Planned: OPNsense firewall/router | 4 x 2.5 GbE, 8 GB RAM, 120 GB SSD |
 | Lenovo ThinkCentre Tiny (2) | Lab and practice machines | i5-4570T and i7-4765T, 16 GB RAM each |
-| TP-Link Omada SG2210XMP-M2 | Managed switch for VLAN practice and PoE | 8 x 2.5 GbE PoE+, 2 x 10G SFP+ |
+| Managed switch (L2+) | Planned: VLAN practice and PoE. Model to be confirmed | TBD |
 
 ## What's Here
 

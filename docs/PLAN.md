@@ -14,7 +14,7 @@ Goal: build a documented Linux homelab and media server, publish everything to G
 | Protectli Vault FW4C | Planned: OPNsense firewall/router, replacing the Verizon router | 4 x 2.5 GbE, 8 GB RAM, 120 GB SSD |
 | Lenovo ThinkCentre Tiny (i5-4570T) | Spare. No longer needed for OPNsense; can become a second lab machine | i5-4570T, 16 GB RAM, 256 GB SSD |
 | Lenovo ThinkCentre M93p Tiny | Planned: lab and practice virtual machines | i7-4765T, 16 GB RAM, 128 GB SSD |
-| TP-Link Omada SG2210XMP-M2 | Managed switch for VLAN practice, and PoE for access points | 8 x 2.5 GbE PoE+ (160 W), 2 x 10G SFP+ |
+| Managed switch (L2+) | Planned: VLAN practice and PoE for access points. The TP-Link SG2210XMP-M2 was returned; the replacement model is still to be confirmed | TBD |
 | Loose 3.5" hard drives | Media storage and backups (health check first) | 4 TB WD Re, 3 x 1 TB (about 2017-2018) |
 | Windows PC (WSL) | Daily PC, not part of the lab; used for WSL practice and for managing the servers over SSH | |
 
@@ -100,7 +100,7 @@ homelab/
 - [ ] Add the media drive to the EliteDesk and set up its mount and permissions
 - [x] Commit `docker-compose.yml` and write-up
 
-### Weeks 7-8: Networking (TP-Link managed switch)
+### Weeks 7-8: Networking (managed switch)
 - [x] Fixed IP for the server (DHCP reservation on the router)
 - [ ] IP addressing and DNS basics
 - [ ] Switch basics: management page, VLANs, PoE, backing up the config
