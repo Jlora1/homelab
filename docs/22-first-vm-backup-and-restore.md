@@ -79,7 +79,7 @@ Results worth noting:
 
 ## Not Done Yet
 
-- Put the backup on a **schedule** (**Datacenter > Backup**) instead of running it by hand, and decide how many copies to keep.
+- ~~Put the backup on a schedule.~~ Done: a job in **Datacenter > Backup** backs up VM 100 to `backup1` at `2,22:30` (02:30 and 22:30), Snapshot mode, ZSTD, keeping the last 3. I tested it with **Run now**, and `backup1 > Backups` then showed two files for VM 100 (18:02 and 18:52, about 3.16 and 3.17 GiB). <!-- TODO: decide whether to change to one run a day (02:30) -->
 - Make a copy of the backups outside the Tower, to meet the "1 copy somewhere else" part of 3-2-1.
 - Copy the EliteDesk's Jellyfin config and compose files to `backup1`.
 - Delete the test VM 101 when I no longer need it, so it stops using space.
@@ -88,4 +88,4 @@ Results worth noting:
 
 ## Next
 
-Schedule a regular backup of this VM, then back up the EliteDesk's important files to the Tower. After that comes networking, the managed switch and the ad blocker (see `PLAN.md`).
+Back up the EliteDesk's important files to the Tower. After that comes networking, the managed switch and the ad blocker (see `PLAN.md`).
