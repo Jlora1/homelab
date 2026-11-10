@@ -9,7 +9,8 @@ A documented Linux homelab and media server, built step by step as a hands-on pa
 | HP EliteDesk 800 G3 Mini | Always-on server (Ubuntu Server, Docker, Jellyfin) | Intel i5 vPro (7th gen), 8 GB RAM, 256 GB NVMe SSD |
 | Windows PC (WSL) | Daily PC and learning machine (Ubuntu in WSL), not part of the lab | |
 | Dell OptiPlex 7040 Tower | Proxmox VE host, with backup storage on two 1 TB drives | Intel i7-6700, 16 GB RAM, 238 GB SSD |
-| Lenovo ThinkCentre Tiny (2) | Planned: OPNsense firewall; lab and practice machine | i5-4570T and i7-4765T, 16 GB RAM each |
+| Protectli Vault FW4C | Planned: OPNsense firewall/router | 4 x 2.5 GbE, 8 GB RAM, 120 GB SSD |
+| Lenovo ThinkCentre Tiny (2) | Lab and practice machines | i5-4570T and i7-4765T, 16 GB RAM each |
 | TP-Link Omada SG2210XMP-M2 | Managed switch for VLAN practice and PoE | 8 x 2.5 GbE PoE+, 2 x 10G SFP+ |
 
 ## What's Here

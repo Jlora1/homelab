@@ -11,7 +11,8 @@ Goal: build a documented Linux homelab and media server, publish everything to G
 |---------|------|-------|
 | HP EliteDesk 800 G3 Mini | Always-on server (Ubuntu Server, Docker, Jellyfin; later Pi-hole and monitoring) | i5 vPro (7th gen), 8 GB RAM, 256 GB NVMe SSD |
 | Dell OptiPlex 7040 Tower | Proxmox VE 9.2 host (installed), backup storage on two 1 TB drives | i7-6700, 16 GB RAM, 238 GB SSD |
-| Lenovo ThinkCentre Tiny | Planned: OPNsense firewall/router (second network port via a mini PCIe Intel card) | i5-4570T, 16 GB RAM, 256 GB SSD |
+| Protectli Vault FW4C | Planned: OPNsense firewall/router, replacing the Verizon router | 4 x 2.5 GbE, 8 GB RAM, 120 GB SSD |
+| Lenovo ThinkCentre Tiny (i5-4570T) | Spare. No longer needed for OPNsense; can become a second lab machine | i5-4570T, 16 GB RAM, 256 GB SSD |
 | Lenovo ThinkCentre M93p Tiny | Planned: lab and practice virtual machines | i7-4765T, 16 GB RAM, 128 GB SSD |
 | TP-Link Omada SG2210XMP-M2 | Managed switch for VLAN practice, and PoE for access points | 8 x 2.5 GbE PoE+ (160 W), 2 x 10G SFP+ |
 | Loose 3.5" hard drives | Media storage and backups (health check first) | 4 TB WD Re, 3 x 1 TB (about 2017-2018) |
@@ -23,7 +24,7 @@ Goal: build a documented Linux homelab and media server, publish everything to G
 
 **Layout decisions so far:**
 - Jellyfin stays on the EliteDesk, because its 7th-gen Quick Sync chip transcodes 10-bit HEVC and HDR, which the Tower's 6th-gen chip does not.
-- The ThinkCentre Tiny only has one network port and a mini PCIe Wi-Fi slot, so the second port comes from a mini PCIe Intel card (the Wi-Fi card is removed). An M.2 module I bought does not fit it.
+- OPNsense runs on a Protectli Vault FW4C, which has four 2.5 GbE ports built in. That replaces the earlier plan to use a ThinkCentre with an extra network card, so the card and the M.2 module are no longer needed for this.
 - OPNsense is tested on a separate small network before it replaces the Verizon router. Before that: a UPS and the BIOS "After Power Loss: Power On" setting, because a power cut already left the server off for four days.
 - Wi-Fi comes from separate access points wired to the switch, not from the router box.
 
