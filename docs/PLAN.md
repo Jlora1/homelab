@@ -30,6 +30,7 @@ Goal: build a documented Linux homelab and media server, publish everything to G
 **Later (parked):**
 - Local AI tools, on dedicated hardware bought for the purpose. The gaming PC stays out of the lab.
 - A bigger backup drive once the library passes 1 TB.
+- A commercial VPN for the download client only (kill switch, no leaks). Tailscale already covers remote access to my own machines.
 - A UPS (battery backup) for the always-on machines.
 - A media automation stack, modelled on a diagram of someone else's setup: Seerr (requests), Sonarr and Radarr (manage TV and movies), Prowlarr (indexers), qBittorrent (downloads), feeding Jellyfin through shared storage. Run it as separate containers on the Tower's Proxmox, after the media drive and Samba shares are done. Only use it with content I'm allowed to have (my own media, public domain, Creative Commons, Linux ISOs), and decide how download traffic is kept off my home IP before starting.
 
@@ -101,7 +102,7 @@ homelab/
 - [x] Fixed IP for the server (DHCP reservation on the router)
 - [ ] IP addressing and DNS basics
 - [ ] Switch basics: management page, VLANs, PoE, backing up the config
-- [ ] Optional: Pi-hole for DNS practice
+- [ ] Pi-hole (network-wide ad blocker, also DNS practice). Run it on the EliteDesk or in a Proxmox container, and point the router's DNS at it once it's tested
 - [x] Make Docker respect the firewall (Docker bypasses UFW for published ports; restrict with `DOCKER-USER` rules and test)
 - [x] Remote access VPN (WireGuard or Tailscale) to reach the server and add my own media from outside the house, with no router port forwarding for Jellyfin
 
