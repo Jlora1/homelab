@@ -66,6 +66,7 @@ homelab/
     18-ssh-agent-and-shortcuts.md
     19-install-proxmox.md
     20-drive-health-and-backup-storage.md
+    21-new-ssh-key-and-locking-down-the-servers.md
     ...
   configs/
   scripts/
@@ -160,5 +161,6 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-11-01 | ssh-agent, keychain and the `ssh goodmedia` shortcut | [18-ssh-agent-and-shortcuts.md](18-ssh-agent-and-shortcuts.md) |
 | 2026-11-08 | Install Proxmox VE on the OptiPlex Tower | [19-install-proxmox.md](19-install-proxmox.md) |
 | 2026-11-09 | Drive health (SMART) and backup storage in Proxmox | [20-drive-health-and-backup-storage.md](20-drive-health-and-backup-storage.md) |
+| 2026-11-09 | New SSH key, and key-only logins on both servers | [21-new-ssh-key-and-locking-down-the-servers.md](21-new-ssh-key-and-locking-down-the-servers.md) |
 | | First practice VM, a backup job for it, and a test restore | next up |
 | | The media drive (the old 4 TB failed its SMART test; buy a replacement with a warranty) | parked |
