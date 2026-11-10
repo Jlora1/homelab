@@ -71,6 +71,7 @@ homelab/
     19-install-proxmox.md
     20-drive-health-and-backup-storage.md
     21-new-ssh-key-and-locking-down-the-servers.md
+    22-first-vm-backup-and-restore.md
     ...
   configs/
   scripts/
@@ -166,5 +167,6 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-11-08 | Install Proxmox VE on the OptiPlex Tower | [19-install-proxmox.md](19-install-proxmox.md) |
 | 2026-11-09 | Drive health (SMART) and backup storage in Proxmox | [20-drive-health-and-backup-storage.md](20-drive-health-and-backup-storage.md) |
 | 2026-11-09 | New SSH key, and key-only logins on both servers | [21-new-ssh-key-and-locking-down-the-servers.md](21-new-ssh-key-and-locking-down-the-servers.md) |
-| | First practice VM, a backup job for it, and a test restore | next up |
+| 2026-11-10 | First practice VM, a backup to `backup1`, and a test restore | [22-first-vm-backup-and-restore.md](22-first-vm-backup-and-restore.md) |
+| | A scheduled backup job, and copies of the EliteDesk's configs on `backup1` | next up |
 | | The media drive (the old 4 TB failed its SMART test; buy a replacement with a warranty) | parked |
