@@ -102,7 +102,7 @@ homelab/
 - [x] Fixed IP for the server (DHCP reservation on the router)
 - [ ] IP addressing and DNS basics
 - [ ] Switch basics: management page, VLANs, PoE, backing up the config
-- [ ] Pi-hole (network-wide ad blocker, also DNS practice). Run it on the EliteDesk or in a Proxmox container, and point the router's DNS at it once it's tested
+- [ ] AdGuard Home (network-wide ad blocker, also DNS practice). Run it on the EliteDesk or in a Proxmox container, and point the router's DNS at it once it's tested. Pi-hole does the same job and is the fallback
 - [x] Make Docker respect the firewall (Docker bypasses UFW for published ports; restrict with `DOCKER-USER` rules and test)
 - [x] Remote access VPN (WireGuard or Tailscale) to reach the server and add my own media from outside the house, with no router port forwarding for Jellyfin
 
