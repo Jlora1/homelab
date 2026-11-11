@@ -56,11 +56,13 @@ Results worth noting:
 - **The file name had a stray character.** In the Download from URL box, the file name began with a `(`. I deleted it, ran **Query URL**, and checked that the size appeared before clicking Download.
 - **The console was black after the installer.** After the install, the console showed only a cursor. I checked **Options > Boot Order** (the disk `scsi0` was first and the CD drive was empty), then used **Reset** and opened the console again, and it booted to a login prompt. <!-- TODO: note what I think fixed it -->
 - **I looked at the wrong VM.** To check the restored copy's MAC address, I first had the original VM 100 selected. The header at the top of the page says which VM I'm looking at.
+- **The schedule briefly became hourly.** When I edited the job, the Schedule box kept only a `2` from what I typed, and Proxmox reads that as minute 2 of every hour (Next Run said 19:02). I cleared the box, picked `02:30` from the dropdown, and checked that Next Run showed tomorrow at 02:30.
 - **I mistyped my username.** I typed `lzmua` in place of `lzmula`. A failed login just needs a retry.
 - **The root partition looks small.** The installer's default LVM layout used about half of the 20 GiB disk for `/` (the login message said about 9.75 GB). That's fine for practice.
 
 ## How I Fixed It
 
+- Picked the schedule from the dropdown instead of typing it, then checked Next Run.
 - Retyped the file name and ran Query URL before downloading.
 - Checked the boot order and the CD drive before resetting the VM.
 - Ticked **Unique** when restoring, so the copy didn't share a MAC address with the original.
@@ -79,7 +81,7 @@ Results worth noting:
 
 ## Not Done Yet
 
-- ~~Put the backup on a schedule.~~ Done: a job in **Datacenter > Backup** backs up VM 100 to `backup1` at `2,22:30` (02:30 and 22:30), Snapshot mode, ZSTD, keeping the last 3. I tested it with **Run now**, and `backup1 > Backups` then showed two files for VM 100 (18:02 and 18:52, about 3.16 and 3.17 GiB). <!-- TODO: decide whether to change to one run a day (02:30) -->
+- ~~Put the backup on a schedule.~~ Done: a job in **Datacenter > Backup** backs up VM 100 to `backup1` at `02:30` every day, Snapshot mode, ZSTD, keeping the last 3. I tested it with **Run now**, and `backup1 > Backups` then showed two files for VM 100 (18:02 and 18:52, about 3.16 and 3.17 GiB).
 - Make a copy of the backups outside the Tower, to meet the "1 copy somewhere else" part of 3-2-1.
 - Copy the EliteDesk's Jellyfin config and compose files to `backup1`.
 - Delete the test VM 101 when I no longer need it, so it stops using space.
