@@ -72,6 +72,7 @@ homelab/
     20-drive-health-and-backup-storage.md
     21-new-ssh-key-and-locking-down-the-servers.md
     22-first-vm-backup-and-restore.md
+    23-backing-up-jellyfin-to-the-tower.md
     ...
   configs/
   scripts/
@@ -168,5 +169,6 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-11-09 | Drive health (SMART) and backup storage in Proxmox | [20-drive-health-and-backup-storage.md](20-drive-health-and-backup-storage.md) |
 | 2026-11-09 | New SSH key, and key-only logins on both servers | [21-new-ssh-key-and-locking-down-the-servers.md](21-new-ssh-key-and-locking-down-the-servers.md) |
 | 2026-11-10 | First practice VM, a backup to `backup1`, and a test restore | [22-first-vm-backup-and-restore.md](22-first-vm-backup-and-restore.md) |
-| | A scheduled backup job, and copies of the EliteDesk's configs on `backup1` | next up |
+| 2026-11-11 | Backed up the EliteDesk's Jellyfin config to the Tower with `rsync` over a backup-only SSH key | [23-backing-up-jellyfin-to-the-tower.md](23-backing-up-jellyfin-to-the-tower.md) |
+| | Run that copy nightly with cron, then test a restore | next up |
 | | The media drive (the old 4 TB failed its SMART test; buy a replacement with a warranty) | parked |
