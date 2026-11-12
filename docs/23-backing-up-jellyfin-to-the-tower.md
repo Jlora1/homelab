@@ -146,7 +146,7 @@ rm -r /tmp/restore-test
 ## Not Done Yet
 
 - ~~Check the log to prove the first scheduled run happened at 3 AM.~~ Done: `2026-11-12 08:00:01 start` and `08:00:02 finished, exit code 0` (lesson 26). The Tower has to be on, or it logs an error and retries the next night.
-- Do a **full restore drill** one day: stop the Jellyfin container, put the config back, start it and check the libraries. So far I've shown the files come back intact, not that Jellyfin starts from them.
+- ~~Do a full restore drill: stop the container, put the config back, start it and check the libraries.~~ Done in lesson 27: Jellyfin started from the restored config, asked me to log in, showed my library and played a movie.
 - Back up the **media** drive, or decide what's replaceable.
 - A **third copy** somewhere off the Tower (3-2-1).
 - ~~Install the 28 updates waiting on the EliteDesk.~~ Done in lesson 24.

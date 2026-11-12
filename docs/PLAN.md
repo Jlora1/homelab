@@ -76,6 +76,7 @@ homelab/
     24-updating-the-jellyfin-server.md
     25-ip-addressing-and-dns-basics.md
     26-server-maintenance-firmware-and-power-recovery.md
+    27-restoring-jellyfin-from-the-backup.md
     ...
   configs/
   scripts/
@@ -114,7 +115,7 @@ homelab/
 
 ### Weeks 9-10: Backups and file sharing
 - [ ] Samba file shares
-- [ ] Automated backups with rsync, plus a tested restore
+- [x] Automated backups with rsync, plus a tested restore
 - [ ] Basic monitoring (htop, Uptime Kuma, or Netdata)
 
 ### Weeks 11-12: Polish and apply
@@ -175,5 +176,6 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-11-11 | Installed the 28 waiting updates on the EliteDesk, rebooted into the new kernel, Jellyfin came back healthy | [24-updating-the-jellyfin-server.md](24-updating-the-jellyfin-server.md) |
 | 2026-11-11 | Read my own network, tested it layer by layer, and watched DNS answers with `dig` | [25-ip-addressing-and-dns-basics.md](25-ip-addressing-and-dns-basics.md) |
 | 2026-11-12 | Confirmed the first scheduled backup, installed a firmware update, checked automatic updates, updated the Tower and set it to power on after a power cut | [26-server-maintenance-firmware-and-power-recovery.md](26-server-maintenance-firmware-and-power-recovery.md) |
+| 2026-11-12 | Restore drill: stopped Jellyfin, restored its config from the Tower, started it and checked the library, login and playback | [27-restoring-jellyfin-from-the-backup.md](27-restoring-jellyfin-from-the-backup.md) |
 | | Switch basics when the managed switch arrives (17 Nov), then the Protectli router | next up |
 | | The media drive (the old 4 TB failed its SMART test; buy a replacement with a warranty) | parked |

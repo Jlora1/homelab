@@ -107,7 +107,7 @@ qm list
 - Buy a **UPS** (battery backup), so a power cut doesn't hard-stop the machines in the first place. AC Recovery only helps after the power returns.
 - Install the 51 waiting updates inside the practice VM, or delete the VM.
 - Delete the test VM 101 on the Tower when I no longer need it.
-- Do a **full Jellyfin restore drill**: stop the container, put the config back, start it and check the libraries.
+- ~~Do a full Jellyfin restore drill.~~ Done in lesson 27.
 - Back up the **media** drive, or decide what's replaceable, and add a **third copy** off the Tower (3-2-1).
 - Find out why the Tower had no picture after the reboot, if it happens again.
 
