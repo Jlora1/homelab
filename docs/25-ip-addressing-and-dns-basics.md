@@ -80,10 +80,9 @@ Nothing broke. These commands only look at things.
 
 ## Not Done Yet
 
-- Remove the old kernel files the installer says are no longer needed: `sudo apt autoremove` (kernel `7.0.0-38`). Three packages were also held back from the last upgrade, so I need to check why.
-- Run **AdGuard Home** and point the router's DNS at it once it's tested.
+- ~~Remove the old kernel files and check the three held-back packages.~~ Done in lesson 26: the old kernel was already auto-removed, and the held-back packages were only phased updates.
 - Pick the managed switch, then OPNsense on the Protectli (see `PLAN.md`).
 
 ## Next
 
-AdGuard Home, the network-wide ad blocker, which is also more DNS practice. Then the managed switch.
+The managed switch, then more network practice on the Protectli router (see `PLAN.md`).

@@ -145,13 +145,13 @@ rm -r /tmp/restore-test
 
 ## Not Done Yet
 
-- **Check the log tomorrow morning** (`sudo tail /var/log/backup-jellyfin.log`) to prove the first scheduled run happened at 3 AM. The Tower has to be on, or it logs an error and retries the next night.
+- ~~Check the log to prove the first scheduled run happened at 3 AM.~~ Done: `2026-11-12 08:00:01 start` and `08:00:02 finished, exit code 0` (lesson 26). The Tower has to be on, or it logs an error and retries the next night.
 - Do a **full restore drill** one day: stop the Jellyfin container, put the config back, start it and check the libraries. So far I've shown the files come back intact, not that Jellyfin starts from them.
 - Back up the **media** drive, or decide what's replaceable.
 - A **third copy** somewhere off the Tower (3-2-1).
-- Install the **28 updates** waiting on the EliteDesk (20 are security updates).
+- ~~Install the 28 updates waiting on the EliteDesk.~~ Done in lesson 24.
 - Restoring from this copy may need `chown` to give the files back to the right owner, because the copy is owned by `goodbackup`.
-- Set the Tower's BIOS to power back on after a power loss, and plan a UPS, so the 3 AM copy can't miss because of a power cut.
+- ~~Set the Tower's BIOS to power back on after a power loss.~~ Done and tested in lesson 26. A UPS is still to buy, so the 3 AM copy can't miss because of a power cut.
 - Delete the test VM 101 on the Tower when I no longer need it.
 
 ## Next

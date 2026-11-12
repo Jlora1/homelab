@@ -52,9 +52,9 @@ Nothing broke this time.
 
 ## Not Done Yet
 
-- Check the log for the first scheduled backup run (`sudo tail /var/log/backup-jellyfin.log`) and look for a line around 08:00 UTC.
-- The Tower and the practice VM also have updates waiting (the VM has 51).
-- Turn on automatic security updates, or set a regular day to update.
+- ~~Check the log for the first scheduled backup run.~~ Done: it ran at 08:00 UTC on 2026-11-12 with exit code 0 (lesson 26).
+- ~~Check the Tower for updates.~~ Done in lesson 26: it was already up to date. The practice VM still has 51 waiting.
+- ~~Turn on automatic security updates.~~ Already on by default (lesson 26). I still choose when to reboot.
 
 ## Next
 

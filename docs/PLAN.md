@@ -75,6 +75,7 @@ homelab/
     23-backing-up-jellyfin-to-the-tower.md
     24-updating-the-jellyfin-server.md
     25-ip-addressing-and-dns-basics.md
+    26-server-maintenance-firmware-and-power-recovery.md
     ...
   configs/
   scripts/
@@ -108,7 +109,6 @@ homelab/
 - [x] Fixed IP for the server (DHCP reservation on the router)
 - [x] IP addressing and DNS basics
 - [ ] Switch basics: management page, VLANs, PoE, backing up the config
-- [ ] AdGuard Home (network-wide ad blocker, also DNS practice). Run it on the EliteDesk or in a Proxmox container, and point the router's DNS at it once it's tested. Pi-hole does the same job and is the fallback
 - [x] Make Docker respect the firewall (Docker bypasses UFW for published ports; restrict with `DOCKER-USER` rules and test)
 - [x] Remote access VPN (WireGuard or Tailscale) to reach the server and add my own media from outside the house, with no router port forwarding for Jellyfin
 
@@ -174,5 +174,6 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-11-11 | Backed up the EliteDesk's Jellyfin config to the Tower with `rsync` over a backup-only SSH key, put it on a nightly cron job and test-restored it | [23-backing-up-jellyfin-to-the-tower.md](23-backing-up-jellyfin-to-the-tower.md) |
 | 2026-11-11 | Installed the 28 waiting updates on the EliteDesk, rebooted into the new kernel, Jellyfin came back healthy | [24-updating-the-jellyfin-server.md](24-updating-the-jellyfin-server.md) |
 | 2026-11-11 | Read my own network, tested it layer by layer, and watched DNS answers with `dig` | [25-ip-addressing-and-dns-basics.md](25-ip-addressing-and-dns-basics.md) |
-| | Check the first nightly backup in the log, then AdGuard Home and the managed switch | next up |
+| 2026-11-12 | Confirmed the first scheduled backup, installed a firmware update, checked automatic updates, updated the Tower and set it to power on after a power cut | [26-server-maintenance-firmware-and-power-recovery.md](26-server-maintenance-firmware-and-power-recovery.md) |
+| | Switch basics when the managed switch arrives (17 Nov), then the Protectli router | next up |
 | | The media drive (the old 4 TB failed its SMART test; buy a replacement with a warranty) | parked |
