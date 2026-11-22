@@ -14,7 +14,7 @@ Goal: build a documented Linux homelab and media server, publish everything to G
 | Protectli Vault FW4C | Planned: OPNsense firewall/router, replacing the Verizon router | 4 x 2.5 GbE, 8 GB RAM, 120 GB SSD |
 | Lenovo ThinkCentre Tiny (i5-4570T) | Spare. No longer needed for OPNsense; can become a second lab machine | i5-4570T, 16 GB RAM, 256 GB SSD |
 | Lenovo ThinkCentre M93p Tiny | Planned: lab and practice virtual machines | i7-4765T, 16 GB RAM, 128 GB SSD |
-| Managed switch (L2+) | Planned: VLAN practice and PoE for access points. The TP-Link SG2210XMP-M2 was returned; the replacement model is still to be confirmed | TBD |
+| Ubiquiti USW-Flex-2.5G-8 | Managed switch, adopted into the UniFi controller on the EliteDesk (lesson 28). For VLAN practice. The TP-Link SG2210XMP-M2 was returned | 8 x 2.5 GbE, 10 GbE uplink, USB-C or PoE+ powered |
 | Loose 3.5" hard drives | Media storage and backups (health check first) | 4 TB WD Re, 3 x 1 TB (about 2017-2018) |
 | Windows PC (WSL) | Daily PC, not part of the lab; used for WSL practice and for managing the servers over SSH | |
 
@@ -178,6 +178,6 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-11-11 | Read my own network, tested it layer by layer, and watched DNS answers with `dig` | [25-ip-addressing-and-dns-basics.md](25-ip-addressing-and-dns-basics.md) |
 | 2026-11-12 | Confirmed the first scheduled backup, installed a firmware update, checked automatic updates, updated the Tower and set it to power on after a power cut | [26-server-maintenance-firmware-and-power-recovery.md](26-server-maintenance-firmware-and-power-recovery.md) |
 | 2026-11-12 | Restore drill: stopped Jellyfin, restored its config from the Tower, started it and checked the library, login and playback | [27-restoring-jellyfin-from-the-backup.md](27-restoring-jellyfin-from-the-backup.md) |
-| 2026-11-22 | Found the new switch with a ping sweep and `ip neigh`, hit "connection reset" on SSH (in progress: factory reset, then adopt it into the controller container) | [28-finding-and-adopting-the-switch.md](28-finding-and-adopting-the-switch.md) |
+| 2026-11-22 | Found the new switch with a ping sweep and `ip neigh`, learned the Flex 2.5G has no SSH, and adopted it into the UniFi controller container with the HostiFi Discovery Tool | [28-finding-and-adopting-the-switch.md](28-finding-and-adopting-the-switch.md) |
 | | Switch basics (management page, VLANs, PoE, config backup), then the Protectli router | next up |
 | | The media drive (the old 4 TB failed its SMART test; buy a replacement with a warranty) | parked |
