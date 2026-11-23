@@ -67,7 +67,7 @@ Not recorded at the time. The problems that came up when adopting the switch are
 
 See lesson 28. The main Docker-specific lesson: discovery broadcasts don't reach a container on Docker's default network, so devices have to be given the inform URL some other way.
 
-**Still to check:** whether the live `~/unifi/docker-compose.yml` reads the passwords from `.env` (`${...}`) or has them typed in directly. If they're typed in, move them into `.env` like the repo copy.
+**Checked:** the live compose file reads its passwords from `.env`. `grep -c '\${' ~/unifi/docker-compose.yml` found 3 `${...}` placeholders, so no password is typed into it.
 
 ## What I Learned
 
