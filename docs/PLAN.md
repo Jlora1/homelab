@@ -187,5 +187,5 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-11-22 | Tower stopped at `(initramfs)` after being unplugged: the BIOS had reset and the boot SSD vanished. Set SATA Operation back to AHCI (in progress: replace the CMOS battery) | [30-tower-wont-boot-after-bios-reset.md](30-tower-wont-boot-after-bios-reset.md) |
 | 2026-11-22 | Wrote up the UniFi Network controller and its MongoDB database in Docker; compose file and init script in `configs/unifi/`, passwords kept in `.env` | [31-unifi-controller-in-docker.md](31-unifi-controller-in-docker.md) |
 | 2026-11-22 | Uptime Kuma v2 in Docker: six monitors (Tower, Proxmox, Jellyfin, UniFi, switch, DNS) and ntfy phone alerts | [32-monitoring-with-uptime-kuma.md](32-monitoring-with-uptime-kuma.md) |
-| | Fix the Tower's 100 Mbps link on the switch; then OPNsense on the Protectli, tested on a separate network, then VLANs | next up |
+| | Fix the Tower's 100 Mbps link on the switch; then VLANs | next up |
 | | The media drive (the old 4 TB failed its SMART test; buy a replacement with a warranty) | parked |
