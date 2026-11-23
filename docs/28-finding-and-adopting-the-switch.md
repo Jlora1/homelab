@@ -61,7 +61,7 @@ ip -4 addr show eno1 | grep inet
 
 **Opened the controller** at `https://192.168.1.187:8443` → UniFi Devices: "No UniFi Devices found". In Device Updates & Settings, **Inform Host Override** was already set to `192.168.1.187`.
 
-**Added a DNS rewrite in AdGuard Home** (Filters → DNS rewrites): `unifi` → `192.168.1.187`, and checked it:
+**Added a local DNS record** on the DNS server running on `goodmedia`: `unifi` → `192.168.1.187`, and checked it:
 
 ```bash
 nslookup unifi 192.168.1.187
@@ -114,7 +114,7 @@ The four rules from lesson 15 only drop traffic from **outside** my network (`! 
 
 2. This wasn't a fault. The **USW-Flex-2.5G-8 has no SSH login**, so no password or reset would ever get me in. The port accepts the connection and then hangs up.
 
-3. The controller runs in Docker, so it never heard the switch's discovery broadcast. The switch needed the inform URL from somewhere else. With no SSH, no way to set option 43 on the Verizon router, and no proof the switch used AdGuard for DNS, I used the HostiFi Discovery Tool to send it directly from my PC.
+3. The controller runs in Docker, so it never heard the switch's discovery broadcast. The switch needed the inform URL from somewhere else. With no SSH, no way to set option 43 on the Verizon router, and no proof the switch used my DNS server, I used the HostiFi Discovery Tool to send it directly from my PC.
 
 4. The Inform URL box only showed a grey hint (`http://unifi.your-domain.com:8080/inform`), so it was actually empty. Once I typed the real URL, the adoption request went through.
 
@@ -124,4 +124,4 @@ The four rules from lesson 15 only drop traffic from **outside** my network (`! 
 - Angle brackets in instructions are placeholders. Typed into bash, they're redirection.
 - "Connection reset" during `kex_exchange_identification` means the network path is fine and the port is open, but the other end refuses SSH. Check the device's model before assuming it's broken. Some devices simply don't offer SSH.
 - A controller in Docker can't rely on discovery broadcasts. Adopting needs `set-inform`, a `unifi` DNS record, DHCP option 43 or a tool like HostiFi's.
-- The `unifi` DNS rewrite in AdGuard only helps devices that use AdGuard as their DNS server. Once the OPNsense router hands out AdGuard (or option 43) by DHCP, future UniFi devices should show up for adoption by themselves.
+- A local `unifi` DNS record only helps devices that actually use that DNS server. Once the OPNsense router hands it out (or option 43) by DHCP, future UniFi devices should show up for adoption by themselves.

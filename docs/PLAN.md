@@ -80,6 +80,7 @@ homelab/
     28-finding-and-adopting-the-switch.md
     29-switch-tour-and-backing-up-the-controller.md
     30-tower-wont-boot-after-bios-reset.md
+    31-unifi-controller-in-docker.md
     ...
   configs/
   scripts/
@@ -183,5 +184,6 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-11-22 | Found the new switch with a ping sweep and `ip neigh`, learned the Flex 2.5G has no SSH, and adopted it into the UniFi controller container with the HostiFi Discovery Tool | [28-finding-and-adopting-the-switch.md](28-finding-and-adopting-the-switch.md) |
 | 2026-11-22 | Toured the switch, named it `sw-office`, turned on weekly UniFi backups and copied them to the Tower nightly with `backup-unifi.sh` (tested, scheduled at 3:15 AM) | [29-switch-tour-and-backing-up-the-controller.md](29-switch-tour-and-backing-up-the-controller.md) |
 | 2026-11-22 | Tower stopped at `(initramfs)` after being unplugged: the BIOS had reset and the boot SSD vanished. Set SATA Operation back to AHCI (in progress: replace the CMOS battery) | [30-tower-wont-boot-after-bios-reset.md](30-tower-wont-boot-after-bios-reset.md) |
+| 2026-11-22 | Wrote up the UniFi Network controller and its MongoDB database in Docker; compose file and init script in `configs/unifi/`, passwords kept in `.env` | [31-unifi-controller-in-docker.md](31-unifi-controller-in-docker.md) |
 | | Replace the Tower's CMOS battery (CR2032); fix the Tower's 100 Mbps link on the switch; then VLANs with the Protectli/OPNsense router | next up |
 | | The media drive (the old 4 TB failed its SMART test; buy a replacement with a warranty) | parked |
