@@ -1,0 +1,11 @@
+# Uptime Kuma monitoring dashboard on the EliteDesk (goodmedia).
+# Live copy: ~/uptime-kuma/docker-compose.yml. Web page: http://192.168.1.187:3001
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:2
+    container_name: uptime-kuma
+    restart: unless-stopped
+    ports:
+      - "192.168.1.187:3001:3001"   # home network address only
+    volumes:
+      - /srv/uptime-kuma/data:/app/data
