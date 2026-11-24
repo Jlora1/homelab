@@ -124,4 +124,4 @@ The four rules from lesson 15 only drop traffic from **outside** my network (`! 
 - Angle brackets in instructions are placeholders. Typed into bash, they're redirection.
 - "Connection reset" during `kex_exchange_identification` means the network path is fine and the port is open, but the other end refuses SSH. Check the device's model before assuming it's broken. Some devices simply don't offer SSH.
 - A controller in Docker can't rely on discovery broadcasts. Adopting needs `set-inform`, a `unifi` DNS record, DHCP option 43 or a tool like HostiFi's.
-- A local `unifi` DNS record only helps devices that actually use that DNS server. Once the router hands it out (or option 43) by DHCP, future UniFi devices should show up for adoption by themselves.
+- A local `unifi` DNS record only helps devices that actually use that DNS server. Once the OPNsense router hands it out (or option 43) by DHCP, future UniFi devices should show up for adoption by themselves.
