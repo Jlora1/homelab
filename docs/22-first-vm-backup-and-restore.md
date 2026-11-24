@@ -70,8 +70,6 @@ Results worth noting:
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - A backup isn't proven until I've restored it. The restore worked in under a minute, and the copy booted and let me in.
 - Restoring to a new VM ID makes a safe copy. Restoring over the same ID replaces the original.
 - A restored copy needs a new MAC address (the **Unique** option), or two VMs on the same network can clash.

@@ -69,8 +69,6 @@ Nothing broke. These commands only look at things.
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - When something is wrong with the network, test in order: router, then internet by address, then internet by name. Where it fails tells me which part is broken.
 - If pinging `1.1.1.1` works but pinging `google.com` fails, the problem is DNS.
 - A subnet like `/24` tells me which numbers name the network.

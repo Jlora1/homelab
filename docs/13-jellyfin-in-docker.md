@@ -78,8 +78,6 @@ Results worth noting:
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - A Compose file describes a whole service: image, ports, folders, devices, and restart behavior. It can be saved in Git and rebuilt anywhere.
 - Keeping settings and media outside the container means I can update or recreate the container without losing anything.
 - Permissions matter: the container runs as a specific user ID, and the folders must belong to that user.

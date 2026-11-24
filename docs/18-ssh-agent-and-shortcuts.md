@@ -68,8 +68,6 @@ Results worth noting:
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - A passphrase protects the key file on disk. An agent holds the unlocked key in memory so I only unlock it once. Anyone who can use my open terminal session could use the loaded key, so I close sessions, or run `ssh-add -D` to unload it, when I'm done.
 - `ssh-keygen -p` changes a key's passphrase without changing the key, so nothing on the server has to change.
 - If I forget the passphrase the key is useless, and since password login is off I'd need a keyboard and monitor on the server to add a new key.

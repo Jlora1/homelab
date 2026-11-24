@@ -70,8 +70,6 @@ A broader rule is possible: drop all *new* connections from outside the home net
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - Docker's published ports bypass UFW because Docker's rules are checked first. A rule in the `DOCKER-USER` chain is the supported place to filter them.
 - By the time packets reach Docker's chain, their destination has been rewritten. Matching the original port (`--ctorigdstport`) avoids that problem.
 - Firewall rules in iptables disappear at reboot, so they need a service that restores them.

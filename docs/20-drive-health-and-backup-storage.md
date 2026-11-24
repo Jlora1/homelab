@@ -61,8 +61,6 @@ Results worth noting:
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - A SMART **PASSED** isn't a guarantee. Read the pending and uncorrectable sector counts.
 - Pending sectors that don't clear and a self-test that ends in a read failure mean the drive is failing, even if it still mostly works.
 - Raw SMART numbers mean different things on different brands. Compare the normalized value to its limit.

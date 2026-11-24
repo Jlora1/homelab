@@ -36,8 +36,6 @@ Results worth noting:
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - A container is a small, isolated package with a program and everything it needs. It's easier to update or remove than installing software directly.
 - Docker Engine is the service that runs containers. `docker compose` reads a file that describes a whole setup, which I can save in this repo.
 - `hello-world` is a quick test that the install works.

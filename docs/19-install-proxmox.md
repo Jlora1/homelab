@@ -57,8 +57,6 @@ Results worth noting:
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - Check the CPU type before downloading an ISO. **x86-64** is Intel and AMD, **ARM64** is not.
 - The installer wipes whichever disk is selected, so read the model name and size on that screen before clicking Next.
 - Proxmox is the operating system on the machine, not a program inside Windows.

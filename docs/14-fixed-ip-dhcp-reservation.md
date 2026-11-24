@@ -45,8 +45,6 @@ Results worth noting:
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - DHCP lends addresses for a limited time. A reservation makes the router give the same address to the same device every time.
 - A MAC address identifies a network port. The router uses it to match a device to its reservation.
 - Reserving the address the server already has avoids changing anything else.

@@ -87,8 +87,6 @@ By default a device's Tailscale key expires after a while, and the device would 
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - A VPN like Tailscale lets me reach home devices without opening ports, which keeps the router closed to the internet.
 - Only devices signed in to my account can reach the private addresses.
 - Download and look at an installer before running it, instead of piping it into the shell.

@@ -79,8 +79,6 @@ There was nothing to fix. I checked each result before moving to the next step (
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - A backup is proven only after the service starts from it. Matching files isn't the same thing.
 - Move the current data aside instead of deleting it, so the restore can be undone.
 - Save the original owner before changing anything, and give it back to the restored files.

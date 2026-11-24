@@ -65,8 +65,6 @@ Results worth noting:
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - `scp` uses my SSH key, so I can copy files without opening any new ports. The path after the `:` is on the server.
 - Always verify a copy on the destination machine instead of trusting the progress bar alone.
 - A "file" that `scp` calls "not a regular file" is probably a folder.

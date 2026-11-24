@@ -132,8 +132,6 @@ rm -r /tmp/restore-test
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - A backup on the same machine isn't enough. This one lives on a different computer.
 - A dedicated low-privilege user and a key limited to one address means a problem on one machine can't spread to the other.
 - Only back up what you can't rebuild. Settings are small. The cache rebuilds, and media is a separate job.

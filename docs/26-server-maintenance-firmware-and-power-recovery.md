@@ -92,8 +92,6 @@ qm list
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - A scheduled job isn't proven until I've seen it run by itself in the log.
 - "Not upgrading yet due to phasing" isn't an error. Wait a few days.
 - Automatic security updates install patches but don't reboot. A reboot is still my job.

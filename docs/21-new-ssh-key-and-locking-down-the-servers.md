@@ -83,8 +83,6 @@ Results worth noting:
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - A key backup, plus the passphrase written down somewhere separate, is what keeps a reinstall from locking me out.
 - Never change SSH settings with only one window open. Test the change from a second window first.
 - `sshd -T` shows what the server will really use, which matters when several files set the same option.

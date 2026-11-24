@@ -43,8 +43,6 @@ Nothing broke this time.
 
 ## What I Learned
 
-<!-- TODO: rewrite these in my own words. They are a first draft. -->
-
 - Updating takes two commands, and a new kernel needs a reboot before it counts.
 - Do updates after a backup exists, not before.
 - Check that a service restarts by itself before rebooting a server, and check it again afterwards.
