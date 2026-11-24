@@ -63,6 +63,11 @@ All six turned green: ProxMox and the UniFi controller answered `200 - OK`.
    ```
 
 4. The first ntfy test notification didn't arrive.
+5. The next day the **DNS** monitor kept flapping, red for a minute and then green, several times a day:
+
+   ```
+   DNS Down: queryA ESERVFAIL google.com
+   ```
 
 ## How I Fixed It
 
@@ -78,6 +83,7 @@ All six turned green: ProxMox and the UniFi controller answered `200 - OK`.
 2. The old browser tab was still talking to the v1 container. A fresh tab showed v2's **database choice** first (SQLite). The browser window was half off-screen, which hid that button. After that, creating the account worked.
 3. The URL box already starts with `https://`, and I typed the address after it, making `https://http://...`. Kuma then looked for a computer called "http". Clearing the box and typing the full URL once fixed all three. The Tower alert came from before I switched that monitor to **Ping**: the Tower has no web page on port 443.
 4. Fixed the ntfy settings until the test notification reached my phone.
+5. `SERVFAIL` means my DNS server was up but its **upstream** (the internet resolver it forwards to) briefly didn't answer. I gave it three upstream resolvers queried in parallel, plus fallback servers and optimistic caching. In Kuma I set the DNS monitor's **Retries** to **2**, so it only alerts after about 3 minutes of failures, not one-off blips.
 
 ## What I Learned
 
@@ -85,4 +91,5 @@ All six turned green: ProxMox and the UniFi controller answered `200 - OK`.
 - `ENOTFOUND` means the name couldn't be looked up, which is often a typo in the address.
 - `ECONNREFUSED` means the machine is up, but nothing is listening on that port.
 - Self-signed certificates are normal in a homelab. Monitors need to be told to accept them.
+- `SERVFAIL` points at the upstream resolver, not my own server. Retries keep alerts for real outages only.
 - Monitoring turns "I'll notice eventually" into an alert within a minute.
