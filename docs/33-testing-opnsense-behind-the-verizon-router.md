@@ -76,9 +76,9 @@ Default Gateway . . . . . . . . . : 10.10.10.1
 
 **Still to do:**
 
-- [ ] Download a config backup (System → Configuration → Backups). It contains password hashes, so it stays off GitHub.
-- [ ] Review the default firewall rules and the DNS setup.
-- [ ] Plan the swap: change the LAN to `192.168.1.1/24` so the server (.187), the Tower (.178) and the switch (.205) keep their addresses, add DHCP reservations, then move the cables at a quiet time, with the Verizon router as the fallback.
+- [x] Download a config backup (System → Configuration → Backups). It contains password hashes, so it stays off GitHub.
+- [x] Review the default firewall rules and the DNS setup (lesson 34).
+- [x] Plan the swap (done in lesson 34): change the LAN to `192.168.1.1/24` so the server (.187), the Tower (.178) and the switch (.205) keep their addresses, add DHCP reservations, then move the cables at a quiet time, with the Verizon router as the fallback.
 
 ## What I Learned
 

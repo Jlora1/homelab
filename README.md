@@ -9,7 +9,7 @@ A documented Linux homelab and media server, built step by step as a hands-on pa
 | HP EliteDesk 800 G3 Mini | Always-on server (Ubuntu Server, Docker, Jellyfin) | Intel i5 vPro (7th gen), 8 GB RAM, 256 GB NVMe SSD |
 | Windows PC (WSL) | Daily PC and learning machine (Ubuntu in WSL), not part of the lab | |
 | Dell OptiPlex 7040 Tower | Proxmox VE host, with backup storage on two 1 TB drives | Intel i7-6700, 16 GB RAM, 238 GB SSD |
-| Protectli Vault FW4C | OPNsense firewall/router, in testing | 4 x 2.5 GbE, 8 GB RAM, 120 GB SSD |
+| Protectli Vault FW4C | OPNsense firewall/router (the house router since Nov 25) | 4 x 2.5 GbE, 8 GB RAM, 120 GB SSD |
 | Lenovo ThinkCentre Tiny (2) | Lab and practice machines | i5-4570T and i7-4765T, 16 GB RAM each |
 | Ubiquiti USW-Flex-2.5G-8 | Managed switch, adopted into the UniFi controller (in Docker on the EliteDesk) | 8 x 2.5 GbE, 10 GbE uplink |
 

@@ -11,7 +11,7 @@ Goal: build a documented Linux homelab and media server, publish everything to G
 |---------|------|-------|
 | HP EliteDesk 800 G3 Mini | Always-on server (Ubuntu Server, Docker, Jellyfin; later Pi-hole and monitoring) | i5 vPro (7th gen), 8 GB RAM, 256 GB NVMe SSD |
 | Dell OptiPlex 7040 Tower | Proxmox VE 9.2 host (installed), backup storage on two 1 TB drives | i7-6700, 16 GB RAM, 238 GB SSD |
-| Protectli Vault FW4C | OPNsense 26.7.9 firewall/router, tested behind the Verizon router (lesson 33); will replace it | 4 x 2.5 GbE, 8 GB RAM, 120 GB SSD |
+| Protectli Vault FW4C | OPNsense firewall/router; replaced the Verizon router on 2026-11-25 (lesson 34) | 4 x 2.5 GbE, 8 GB RAM, 120 GB SSD |
 | Lenovo ThinkCentre Tiny (i5-4570T) | Spare. No longer needed for OPNsense; can become a second lab machine | i5-4570T, 16 GB RAM, 256 GB SSD |
 | Lenovo ThinkCentre M93p Tiny | Planned: lab and practice virtual machines | i7-4765T, 16 GB RAM, 128 GB SSD |
 | Ubiquiti USW-Flex-2.5G-8 | Managed switch, adopted into the UniFi controller on the EliteDesk (lesson 28). For VLAN practice. The TP-Link SG2210XMP-M2 was returned | 8 x 2.5 GbE, 10 GbE uplink, USB-C or PoE+ powered |
@@ -83,6 +83,7 @@ homelab/
     31-unifi-controller-in-docker.md
     32-monitoring-with-uptime-kuma.md
     33-testing-opnsense-behind-the-verizon-router.md
+    34-swapping-the-verizon-router-for-opnsense.md
     ...
   configs/
   scripts/
@@ -189,5 +190,6 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-11-22 | Wrote up the UniFi Network controller and its MongoDB database in Docker; compose file and init script in `configs/unifi/`, passwords kept in `.env` | [31-unifi-controller-in-docker.md](31-unifi-controller-in-docker.md) |
 | 2026-11-22 | Uptime Kuma v2 in Docker: six monitors (Tower, Proxmox, Jellyfin, UniFi, switch, DNS) and ntfy phone alerts | [32-monitoring-with-uptime-kuma.md](32-monitoring-with-uptime-kuma.md) |
 | 2026-11-23 | Tested OPNsense on a separate 10.10.10.x network behind the Verizon router; PC got an address and internet through it; updated to 26.7.9 | [33-testing-opnsense-behind-the-verizon-router.md](33-testing-opnsense-behind-the-verizon-router.md) |
-| | OPNsense: review firewall rules and DNS, plan the swap; fix the Tower's 100 Mbps link; then VLANs | next up |
+| 2026-11-25 | Swapped the Verizon router for OPNsense on the Fios ONT; LAN 192.168.1.1 with DHCP reservations; goodmedia moved to its USB 2.5 GbE adapter; Orbi RBR760 in AP mode for Wi-Fi (in progress) | [34-swapping-the-verizon-router-for-opnsense.md](34-swapping-the-verizon-router-for-opnsense.md) |
+| | Orbi satellites; switch to .205; DNS through goodmedia then Unbound; fix the Tower's 100 Mbps link; then VLANs | next up |
 | | The media drive (the old 4 TB failed its SMART test; buy a replacement with a warranty) | parked |
