@@ -25,7 +25,7 @@ Goal: build a documented Linux homelab and media server, publish everything to G
 **Layout decisions so far:**
 - Jellyfin stays on the EliteDesk, because its 7th-gen Quick Sync chip transcodes 10-bit HEVC and HDR, which the Tower's 6th-gen chip does not.
 - OPNsense runs on a Protectli Vault FW4C, which has four 2.5 GbE ports built in. That replaces the earlier plan to use a ThinkCentre with an extra network card, so the card and the M.2 module are no longer needed for this.
-- OPNsense is tested on a separate small network before it replaces the Verizon router. Before that: a UPS and the BIOS "After Power Loss: Power On" setting, because a power cut already left the server off for four days.
+- OPNsense is tested on a separate small network before it replaces the Verizon router. The BIOS "After Power Loss: Power On" setting matters here, because a power cut already left the server off for four days. A UPS is shelved (see Later) and is not required before the swap.
 - Wi-Fi comes from separate access points wired to the switch, not from the router box.
 
 **Later (parked):**
@@ -33,7 +33,7 @@ Goal: build a documented Linux homelab and media server, publish everything to G
 - A bigger backup drive once the library passes 1 TB.
 - A commercial VPN for the download client only (kill switch, no leaks). Tailscale already covers remote access to my own machines.
 - Home Assistant (smart home control), run as a VM or container on the Tower's Proxmox. Plan the network first: smart devices need to reach it, so decide on VLANs once the switch is set up, and keep them apart from my computers.
-- A UPS (battery backup) for the always-on machines.
+- A UPS (battery backup) for the always-on machines. Shelved, not needed before the router swap.
 - A media automation stack, modelled on a diagram of someone else's setup: Seerr (requests), Sonarr and Radarr (manage TV and movies), Prowlarr (indexers), qBittorrent (downloads), feeding Jellyfin through shared storage. Run it as separate containers on the Tower's Proxmox, after the media drive and Samba shares are done. Only use it with content I'm allowed to have (my own media, public domain, Creative Commons, Linux ISOs), and decide how download traffic is kept off my home IP before starting.
 
 **vPro note:** The EliteDesk has Intel AMT (remote management). It isn't needed, so leave it disabled unless I'm deliberately learning it, since a poorly secured AMT is a security risk.
