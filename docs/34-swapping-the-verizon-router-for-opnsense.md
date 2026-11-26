@@ -122,7 +122,7 @@ ping -c3 192.168.1.205   # 3 received, 0% packet loss
 
 **Orbi satellites:** paired each one next to the router first (Sync on the router, then on the satellite), then moved it to its spot about two rooms away. The light turned **blue**, a good connection. Unplugged the coax: on Fios with no TV boxes or phone, internet only needs the ONT's Ethernet cable. The Verizon router and coax are boxed as the fallback.
 
-**goodmedia boot fixes.** After a power cycle, goodmedia stalled on `A start job is running for systemd-networkd-wait-online`, and the web page on goodmedia (port 80) wouldn't open. `docker port adguardhome` printed nothing: the containers bound to `192.168.1.187` had started before the adapter had that address, so they had no ports. Fixed with:
+**goodmedia boot fixes.** After a power cycle, goodmedia stalled on `A start job is running for systemd-networkd-wait-online`, and the web page on goodmedia (port 80) wouldn't open. `docker port` for the DNS server container printed nothing: the containers bound to `192.168.1.187` had started before the adapter had that address, so they had no ports. Fixed with:
 
 ```bash
 # eno1 (no cable) is optional, so boot doesn't wait for it
@@ -135,7 +135,7 @@ printf '[Unit]\nAfter=network-online.target\nWants=network-online.target\n' | su
 sudo systemctl daemon-reload
 
 # recreate the containers so they get their ports now
-cd ~/adguard && sudo docker compose up -d --force-recreate
+cd ~/<dns-server-folder> && sudo docker compose up -d --force-recreate
 cd ~/uptime-kuma && sudo docker compose up -d --force-recreate
 ```
 
