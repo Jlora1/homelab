@@ -190,6 +190,6 @@ Help desk, IT support technician, Linux support, junior sysadmin, NOC technician
 | 2026-11-22 | Wrote up the UniFi Network controller and its MongoDB database in Docker; compose file and init script in `configs/unifi/`, passwords kept in `.env` | [31-unifi-controller-in-docker.md](31-unifi-controller-in-docker.md) |
 | 2026-11-22 | Uptime Kuma v2 in Docker: six monitors (Tower, Proxmox, Jellyfin, UniFi, switch, DNS) and ntfy phone alerts | [32-monitoring-with-uptime-kuma.md](32-monitoring-with-uptime-kuma.md) |
 | 2026-11-23 | Tested OPNsense on a separate 10.10.10.x network behind the Verizon router; PC got an address and internet through it; updated to 26.7.9 | [33-testing-opnsense-behind-the-verizon-router.md](33-testing-opnsense-behind-the-verizon-router.md) |
-| 2026-11-25 | Swapped the Verizon router for OPNsense on the Fios ONT; LAN 192.168.1.1 with DHCP reservations; goodmedia moved to its USB 2.5 GbE adapter; Orbi RBR760 in AP mode for Wi-Fi (in progress) | [34-swapping-the-verizon-router-for-opnsense.md](34-swapping-the-verizon-router-for-opnsense.md) |
-| | Orbi satellites; switch to .205; DNS through goodmedia then Unbound; fix the Tower's 100 Mbps link; then VLANs | next up |
+| 2026-11-25 | Swapped the Verizon router for OPNsense on the Fios ONT; LAN 192.168.1.1 with DHCP reservations; goodmedia moved to its USB 2.5 GbE adapter; Orbi RBR760 in AP mode with 2 satellites; DNS through goodmedia then Unbound | [34-swapping-the-verizon-router-for-opnsense.md](34-swapping-the-verizon-router-for-opnsense.md) |
+| | Fix the Tower's 100 Mbps link; then VLANs | next up |
 | | The media drive (the old 4 TB failed its SMART test; buy a replacement with a warranty) | parked |

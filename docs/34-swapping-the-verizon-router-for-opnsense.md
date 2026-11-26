@@ -1,4 +1,4 @@
-# Lesson 34: Swapping the Verizon Router for OPNsense (in progress)
+# Lesson 34: Swapping the Verizon Router for OPNsense
 
 **Date:** 2026-11-24 to 2026-11-25 (late night, while everyone was asleep)
 **Machines:** Protectli Vault FW4C (OPNsense), Fios ONT, USW-Flex-2.5G-8 switch, EliteDesk (`goodmedia`), Netgear Orbi RBR760 (bought secondhand), Windows PC
@@ -112,12 +112,45 @@ The address came from OPNsense through the Orbi, so AP mode was working.
 6. Waited 5 minutes and used the Orbi's own password reset (serial number + security questions).
 7. Phones remembered the old network's security settings. **Forget network**, then join again with the same password.
 
-**Still to do:**
+## Finishing Up (2026-11-25, evening)
 
-- [ ] Plug in the two Orbi satellites where the Verizon extenders were.
-- [ ] Power-cycle the switch so it picks up `192.168.1.205`.
-- [ ] DNS: have OPNsense's DHCP hand out the DNS server on goodmedia (`192.168.1.187`), which forwards to Unbound on `192.168.1.1`.
-- [ ] Keep the Verizon router boxed as the fallback.
+**Switch address:** power-cycled the switch, and it took its reservation:
+
+```
+ping -c3 192.168.1.205   # 3 received, 0% packet loss
+```
+
+**Orbi satellites:** paired each one next to the router first (Sync on the router, then on the satellite), then moved it to its spot about two rooms away. The light turned **blue**, a good connection. Unplugged the coax: on Fios with no TV boxes or phone, internet only needs the ONT's Ethernet cable. The Verizon router and coax are boxed as the fallback.
+
+**goodmedia boot fixes.** After a power cycle, goodmedia stalled on `A start job is running for systemd-networkd-wait-online`, and the web page on goodmedia (port 80) wouldn't open. `docker port adguardhome` printed nothing: the containers bound to `192.168.1.187` had started before the adapter had that address, so they had no ports. Fixed with:
+
+```bash
+# eno1 (no cable) is optional, so boot doesn't wait for it
+echo 'network: {version: 2, ethernets: {enx<MAC>: {dhcp4: true}, eno1: {optional: true}}}' | sudo tee /etc/netplan/60-usb-ethernet.yaml
+sudo chmod 600 /etc/netplan/60-usb-ethernet.yaml && sudo netplan apply
+
+# Docker starts only after the network is up
+sudo mkdir -p /etc/systemd/system/docker.service.d
+printf '[Unit]\nAfter=network-online.target\nWants=network-online.target\n' | sudo tee /etc/systemd/system/docker.service.d/wait-network.conf
+sudo systemctl daemon-reload
+
+# recreate the containers so they get their ports now
+cd ~/adguard && sudo docker compose up -d --force-recreate
+cd ~/uptime-kuma && sudo docker compose up -d --force-recreate
+```
+
+`docker port` then showed 53/tcp, 53/udp and 80/tcp on `192.168.1.187`.
+
+**DNS chain:** devices → the DNS server on goodmedia (`192.168.1.187`) → Unbound on OPNsense (`192.168.1.1`, DNSSEC on).
+
+- On goodmedia's DNS server: upstream `192.168.1.1` (Test upstreams passed), fallbacks `9.9.9.9` and `1.1.1.1`, private reverse DNS `192.168.1.1`.
+- In OPNsense: Services → Dnsmasq DNS & DHCP → **DHCP options** → LAN, `dns-server [6]`, value `192.168.1.187`, then Apply.
+- On the PC, `ipconfig /release` and `/renew`, then `ipconfig /all`:
+
+```
+DHCP Server . . . : 192.168.1.1
+DNS Servers . . . : 192.168.1.187
+```
 
 ## What I Learned
 
@@ -126,4 +159,6 @@ The address came from OPNsense through the Orbi, so AP mode was working.
 - A USB network adapter is a separate interface with its own name and MAC. The OS, the reservation and the cable all have to agree on which port is used.
 - In AP mode, a mesh router just extends the network. `ipconfig` showing the main router's gateway proves it.
 - With secondhand network gear, factory reset it first.
+- A service bound to one IP only gets its ports if that IP exists when Docker starts. `docker port` shows whether it did, and Docker should wait for `network-online.target`.
+- DHCP options are how a router tells every device which DNS server to use.
 - "Forget network" fixes devices that won't join after a router change, even with the same Wi-Fi name and password.
